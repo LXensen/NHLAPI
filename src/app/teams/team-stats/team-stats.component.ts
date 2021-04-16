@@ -1,9 +1,36 @@
 import { Stats } from './../model/stats';
 import { TeamsService } from './../service/teams.service';
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+export type SortColumn = keyof Stats | '';
+export type SortDirection = 'asc' | 'desc' | '';
+const rotate: {[key: string]: SortDirection} = { 'asc': 'desc', 'desc': '', '': 'asc' };
+export interface SortEvent {
+  column: SortColumn;
+  direction: SortDirection;
+}
+@Directive({
+  selector: 'th[sortable]',
+  host: {
+    '[class.asc]': 'direction === "asc"',
+    '[class.desc]': 'direction === "desc"',
+    '(click)': 'rotate()'
+  }
+})
+
+export class NgbdSortableHeader {
+
+  @Input() sortable: SortColumn = '';
+  @Input() direction: SortDirection = '';
+  @Output() sort = new EventEmitter<SortEvent>();
+
+  rotate() {
+    this.direction = rotate[this.direction];
+    this.sort.emit({column: this.sortable, direction: this.direction});
+  }
+}
 @Component({
   selector: 'app-team-stats',
   templateUrl: './team-stats.component.html',
@@ -11,6 +38,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TeamStatsComponent implements OnInit {
   stat$!: Observable<Stats>;
+
+  @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader> | undefined;
+  
+  onSort({column, direction}: SortEvent){
+
+  }
 
   constructor(private teamSVC: TeamsService,
               private route: ActivatedRoute) {
