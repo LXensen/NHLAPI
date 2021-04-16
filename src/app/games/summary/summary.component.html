@@ -1,0 +1,76 @@
+<br />
+  
+  <div class="row">
+    <div class="col-6">
+      <div class="row" *ngIf="boxscore$ | async as boxscore">
+          <div class="col-3"></div>
+            <div class="col-6" style="text-align: center;">
+              <app-teams-game-stat [dataItem]="hitsStatItem"></app-teams-game-stat>
+            </div>
+          <div class="col-3"></div>
+      </div>
+      <div class="row" *ngIf="boxscore$ | async as boxscore">
+          <div class="col-3"></div>
+            <div class="col-6" style="text-align: center;">
+              <app-teams-game-stat [dataItem]="shotsStatItem"></app-teams-game-stat>
+            </div>
+          <div class="col-3"></div>
+      </div>  
+      <div class="row" *ngIf="boxscore$ | async as boxscore">
+          <div class="col-3"></div>
+            <div class="col-6" style="text-align: center;">
+              <app-teams-game-stat [dataItem]="blockedShotsStatItem"></app-teams-game-stat>
+            </div>
+          <div class="col-3"></div>
+      </div> 
+      <div class="row" *ngIf="boxscore$ | async as boxscore">
+          <div class="col-3"></div>
+            <div class="col-6" style="text-align: center;">
+              <app-teams-game-stat [dataItem]="turnoversStatItem"></app-teams-game-stat>
+            </div>
+          <div class="col-3"></div>
+      </div>  
+      <div class="row" *ngIf="boxscore$ | async as boxscore">
+          <div class="col-3"></div>
+            <div class="col-6" style="text-align: center;">
+              <app-teams-game-stat [dataItem]="PIMSStatItem"></app-teams-game-stat>
+            </div>
+          <div class="col-3"></div>
+      </div>  
+    </div>  
+    <div class="col-6">
+      <table class="table" *ngIf="linescore$ | async as LineScore">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" style="text-align: left;">{{LineScore.teams.home.team.name}}</th>
+            <td>{{firstPerHome}}</td>
+            <td>{{secondPerHome}}</td>
+            <td>{{thirdPerHome}}</td>
+            <td class="total">{{totalHome}}</td>
+          </tr>
+          <tr>
+            <th scope="row" style="text-align: left;">{{LineScore.teams.away.team.name}}</th>
+            <td>{{firstPerAway}}</td>
+            <td>{{secondPerAway}}</td>
+            <td>{{thirdPerAway}}</td>
+            <td class="total">{{totalAway}}</td>
+          </tr>
+          <tr>
+            <td colspan="5" style="padding: 0;">
+              <div class="tableButton" (click)="displayGoals()" [style]="goalsStyle" style="border-right: none;">Goals</div>
+              <div class="tableButton" (click)="displayShots()" [style]="shotsStyle">Shots</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 

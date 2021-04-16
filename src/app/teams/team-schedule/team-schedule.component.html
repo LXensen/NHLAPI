@@ -1,0 +1,32 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+            <select class="form-select" aria-label="Month" #sel (change)="getDate(sel.value)">
+                <option *ngFor="let month of months;let i=index" [value]="i" [selected]="currentMonth === i">
+                    {{month | date: 'MMMM'}}
+                </option>
+              </select>
+        </div>
+    </div>
+    <div class="row" *ngIf="schedule$ | async as TeamMonthlySchedule">
+        <div class="col-12">
+            <table class="table caption-top table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Match Up</th>
+                    <th scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let match of TeamMonthlySchedule.dates">
+                        <td>{{match.date}}</td>
+                        <td [innerHtml]="getMatchDetails(match)"></td>
+                        <td><a class="NoUnderlineLink" [routerLink]="['/games', match.games[0].gamePk]">Details</a></td>
+                    </tr>
+                </tbody>
+              </table>            
+        </div>
+    </div>
+</div>

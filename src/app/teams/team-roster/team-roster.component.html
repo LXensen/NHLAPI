@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-6">   
+        <table class="table caption-top" *ngIf="roster$ | async as rosterlist">
+            <caption>Forward</caption>
+            <thead>
+                <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let player of rosterlist.roster">
+                    <tr *ngIf="player.position.type == 'Forward'">
+                    <th scope="row"><a class="NoUnderlineLink" [routerLink]="['/players', player.person.id]">{{player.person.fullName}} - #{{player.jerseyNumber}}</a></th>
+                    <td>{{player.position.name}}</td>
+                    </tr>
+                </ng-container> 
+            </tbody>
+        </table>                             
+    </div>  
+    <div class="col-6">   
+        <table class="table caption-top" *ngIf="roster$ | async as rosterlist">
+            <caption>Defense</caption>
+            <thead>
+                <tr>
+                <th scope="col"></th>   
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let player of rosterlist.roster">
+                    <tr *ngIf="player.position.type == 'Defenseman'">
+                    <th scope="row"><a class="NoUnderlineLink" [routerLink]="['/players', player.person.id]">{{player.person.fullName}} - #{{player.jerseyNumber}}</a></th>
+                    <td>{{player.position.name}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table> 
+        
+        <table class="table caption-top" *ngIf="roster$ | async as rosterlist">
+            <caption>Goalies</caption>
+            <thead>
+                <tr>
+                <th scope="col"></th>   
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let player of rosterlist.roster">
+                    <tr *ngIf="player.position.type == 'Goalie'">
+                    <th scope="row"><a class="NoUnderlineLink" [routerLink]="['/players', player.person.id]">{{player.person.fullName}} - #{{player.jerseyNumber}}</a></th>
+                    <td>{{player.position.name}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>         
+    </div>  
+</div>

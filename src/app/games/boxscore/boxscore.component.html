@@ -1,0 +1,91 @@
+<br />
+<div class="row">
+    <div class="col-6">
+        <table class="table" *ngIf="awayPlayers">
+        <!-- <table class="table" *ngIf="boxscore$ | async as boxscore"> -->
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">G</th>
+                <th scope="col">A</th>
+                <th scope="col">+/-</th>
+                <th scope="col">PIM</th>
+                <th scope="col">TOI</th>
+                <th scope="col">Hits</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngFor="let item of boxscore.teams.away.players | keyvalue">
+                 <ng-container *ngIf="$any(item.value).position.name !== 'Goalie'"> 
+                    <th scope="row" style="text-align: left;">
+                        Object Key:{{item.key}} and Object Value:{{item.value | json}}
+                    </th>
+                    <td>{{$any(item.value).person.fullName}}</td>
+                    <td>{{$any(item.value).stats.skaterStats.timeOnIce}}</td>
+                    <td></td>
+                    <td></td>
+                </ng-container>
+              </tr> -->
+              <tr *ngFor="let item of awayPlayers">
+                <ng-container *ngIf="item.position.name !== 'Goalie'"> 
+                    <th scope="row" style="text-align: left;">
+                        {{item.person.fullName}}
+                    </th>
+                    <td>{{item.stats.skaterStats.goals}}</td>
+                    <td>{{item.stats.skaterStats.assists}}</td>
+                    <td>{{item.stats.skaterStats.plusMinus}}</td>
+                    <td>{{item.stats.skaterStats.penaltyMinutes}}</td>
+                    <td>{{item.stats.skaterStats.timeOnIce}}</td>
+                    <td>{{item.stats.skaterStats.hits}}</td>
+                    <td></td>
+                    <td></td>
+                </ng-container>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-6">
+    <table class="table" *ngIf="homePlayers">
+    <!-- <table class="table" *ngIf="boxscore$ | async as boxscore"> -->
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">G</th>
+            <th scope="col">A</th>
+            <th scope="col">+/-</th>
+            <th scope="col">PIM</th>
+            <th scope="col">TOI</th>
+            <th scope="col">Hits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let item of boxscore.teams.away.players | keyvalue">
+             <ng-container *ngIf="$any(item.value).position.name !== 'Goalie'"> 
+                <th scope="row" style="text-align: left;">
+                    Object Key:{{item.key}} and Object Value:{{item.value | json}}
+                </th>
+                <td>{{$any(item.value).person.fullName}}</td>
+                <td>{{$any(item.value).stats.skaterStats.timeOnIce}}</td>
+                <td></td>
+                <td></td>
+            </ng-container>
+          </tr> -->
+          <tr *ngFor="let item of homePlayers">
+            <ng-container *ngIf="item.position.name !== 'Goalie'"> 
+                <th scope="row" style="text-align: left;">
+                    {{item.person.fullName}}
+                </th>
+                <td>{{item.stats.skaterStats.goals}}</td>
+                <td>{{item.stats.skaterStats.assists}}</td>
+                <td>{{item.stats.skaterStats.plusMinus}}</td>
+                <td>{{item.stats.skaterStats.penaltyMinutes}}</td>
+                <td>{{item.stats.skaterStats.timeOnIce}}</td>
+                <td>{{item.stats.skaterStats.hits}}</td>
+                <td></td>
+                <td></td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

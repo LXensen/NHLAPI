@@ -1,0 +1,110 @@
+<br /><br /><br /><br />
+<div class="container-fluid">
+    <div class="row" *ngIf="player$ | async as player">
+        <div class="col-2">
+        pic
+        </div>
+        <div class="col-4">
+            <h5>{{player.people[0].fullName}}</h5>
+            <div class="row">
+                <div class="col-6">
+                    #{{player.people[0].primaryNumber}} - {{player.people[0].primaryPosition.code}} &nbsp;&nbsp; 
+                        {{player.people[0].birthCity}}, {{player.people[0].birthCountry}}
+                </div>
+                <div class="col-6">
+                    
+                </div>                
+            </div>
+        </div>
+        <div class="col-4">
+            <h5>Player Info</h5>
+            <div class="row">
+                <div class="col-6">
+                    Height: {{player.people[0].height}}
+                </div>
+                <div class="col-6">
+                    Weight: {{player.people[0].weight}}
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    Age: {{player.people[0].currentAge}} ({{player.people[0].birthDate}})
+                </div>
+                <div class="col-6">
+                    Shoots: R
+                </div>                
+            </div>            
+        </div>                
+    </div>
+    <!-- <div class="row" *ngIf="player$ | async as player">
+        <div class="col-4">
+            <div class="card" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{player.people[0].fullName}}</h5>
+                      <p class="card-text"> #{{player.people[0].primaryNumber}}, {{player.people[0].primaryPosition.code}} &nbsp;&nbsp; 
+                        {{player.people[0].birthCity}}, {{player.people[0].birthCountry}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-4 border border-1 p-2">
+            <div class="row">
+                <div class="col-6">
+                    <p class="card-text">Height: {{player.people[0].height}}</p>
+                    <p class="card-text">Age : {{player.people[0].currentAge}} ({{player.people[0].birthDate}})</p>                                   
+                </div>                
+                <div class="col-6">
+                    <p class="card-text">Weight: {{player.people[0].weight}}</p>  
+                    <p class="card-text">Shoots: {{player.people[0].shootsCatches}}</p>   
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-12">
+            <table class="table caption-top table-hover" *ngIf="careerStats$ | async as StatsCareer">
+                <caption>NHL Stats</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Season</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">GP</th>
+                    <th scope="col">G</th>
+                    <th scope="col">A</th>
+                    <th scope="col">Pts</th>
+                    <th scope="col">+/-</th>
+                    <th scope="col">PIM</th>
+                    <th scope="col">SOG</th>
+                    <th scope="col">S%</th>
+                    <th scope="col">GWG</th>
+                    <th scope="col">PPG</th>
+                    <th scope="col">PPP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let stat of StatsCareer.stats[0].splits.slice().reverse()">
+                    <th scope="row" *ngIf="stat.league.id === 133">{{stat.season | shortSeason}}</th>
+                    <td *ngIf="stat.league.id === 133">{{teamAbbr(stat.team.id || 0)}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.games}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.goals}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.assists}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.points}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.plusMinus}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.pim}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.shots}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.shotPct}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.gameWinningGoals}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.powerPlayGoals}}</td>
+                    <td *ngIf="stat.league.id === 133">{{stat.stat.powerPlayPoints}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>

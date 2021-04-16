@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table caption-top table-hover" *ngIf="stat$ | async as Stats">
+            <caption>&nbsp;</caption>
+            <thead>
+              <tr>
+                <th scope="col">Stat</th>
+                <th scope="col">Value</th>
+                <th scope="col">Rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Wins</th>
+                <td >{{Stats.stats[0].splits[0].stat.wins}}</td>
+                <td >{{Stats.stats[1].splits[0].stat.wins}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Losess</th>
+                <td >{{Stats.stats[0].splits[0].stat.losses}}</td>
+                <td >{{Stats.stats[1].splits[0].stat.losses}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Points</th>
+                <td>{{Stats.stats[0].splits[0].stat.pts}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.pts}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Points %</th>
+                <td>{{Stats.stats[0].splits[0].stat.ptPctg}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.ptPctg}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Goals / game</th>
+                <td>{{Stats.stats[0].splits[0].stat.goalsPerGame}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.goalsPerGame}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Goals against / game</th>
+                <td>{{Stats.stats[0].splits[0].stat.goalsAgainstPerGame}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.goalsAgainstPerGame}}</td>
+              </tr>  
+              <tr>
+                <th scope="row">PP %</th>
+                <td>{{Stats.stats[0].splits[0].stat.powerPlayPercentage}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.powerPlayPercentage}}</td>
+              </tr>
+              <tr>
+                <th scope="row">PP goals</th>
+                <td>{{Stats.stats[0].splits[0].stat.powerPlayGoals}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.powerPlayGoals}}</td>
+              </tr>
+              <tr>
+                <th scope="row">PP goals against</th>
+                <td>{{Stats.stats[0].splits[0].stat.powerPlayGoalsAgainst}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.powerPlayGoalsAgainst}}</td>
+              </tr>
+              <tr>
+                <th scope="row">PP opportunities</th>
+                <td>{{Stats.stats[0].splits[0].stat.powerPlayOpportunities}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.powerPlayOpportunities}}</td>
+              </tr> 
+              <tr>
+                <th scope="row">PK %</th>
+                <td>{{Stats.stats[0].splits[0].stat.penaltyKillPercentage}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.penaltyKillPercentage}}</td>
+              </tr>                                                                                                                                                                                                     
+              <tr>
+                <th scope="row">Shots / game</th>
+                <td>{{Stats.stats[0].splits[0].stat.shotsPerGame}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.shotsPerGame}}</td>
+              </tr>               
+              <tr>
+                <th scope="row">Shots allowed / game</th>
+                <td>{{Stats.stats[0].splits[0].stat.shotsAllowed}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.shotsAllowed}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Faceoffs won</th>
+                <td>{{Stats.stats[0].splits[0].stat.faceOffsWon}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.faceOffsWon}}</td>
+              </tr> 
+              <tr>
+                <th scope="row">Faceoffs lost</th>
+                <td>{{Stats.stats[0].splits[0].stat.faceOffsLost}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.faceOffsLost}}</td>
+              </tr> 
+              <tr>
+                <th scope="row">Shooting %</th>
+                <td>{{Stats.stats[0].splits[0].stat.shootingPctg}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.shootingPctRank}}</td>
+              </tr>  
+              <tr>
+                <th scope="row">Save %</th>
+                <td>{{Stats.stats[0].splits[0].stat.savePctg}}</td>
+                <td>{{Stats.stats[1].splits[0].stat.savePctRank}}</td>
+              </tr>                                                                                                                                                              
+            </tbody>
+          </table>
+    </div>
+</div>

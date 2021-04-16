@@ -1,0 +1,9 @@
+<div>{{dataItem.Title}}</div>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" [ngStyle]="{'width': awayTeamPercent + '%','background-color': awayTeamPrimary}" attr.aria-valuenow="{{awayTeamPercent}}" aria-valuemin="0" aria-valuemax="100">
+        {{dataItem.AwayValue}}
+    </div>
+    <div class="progress-bar" role="progressbar" [ngStyle]="{'width': homeTeamPercent + '%','background-color': homeTeamPrimary}" attr.aria-valuenow="{{homeTeamPercent}}" aria-valuemin="0" aria-valuemax="100">
+        {{dataItem.HomeValue}}
+    </div>
+</div>

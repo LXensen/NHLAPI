@@ -1,0 +1,50 @@
+<br /><br />
+<div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <br />
+        <app-schedule></app-schedule>
+      </nav>
+  
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <br /><br />
+          <div class="container">
+            <div class="row" *ngIf="linescore$ | async as LineScore">
+              <div class="col-5" style="text-align: right;">
+                <h4>{{LineScore.teams.away.team.name}}</h4>
+              </div>
+              <div class="col-2" style="text-align: center;">
+                <div>{{LineScore.currentPeriodTimeRemaining}} {{LineScore.currentPeriodOrdinal}}<br /></div>
+                <h4>{{LineScore.teams.away.goals}} - {{LineScore.teams.home.goals}}</h4>
+              </div>
+              <div class="col-5"  style="text-align: left;">
+                <h4>{{LineScore.teams.home.team.name}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav nav-pills nav-fill shadow-sm">
+                  <li [ngbNavItem]="1" class="nav-item">
+                    <a ngbNavLink class="nav-link">Summary</a>
+                    <ng-template ngbNavContent>
+                      <app-summary></app-summary>
+                    </ng-template>
+                  </li>
+                  <li [ngbNavItem]="2" class="nav-item">
+                    <a ngbNavLink>Box Score</a>
+                    <ng-template ngbNavContent>
+                      <app-boxscore></app-boxscore>
+                    </ng-template>
+                  </li>
+                </ul>
+                
+                <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                    
+              </div>
+            </div>
+            <br />                                 
+          </div>
+      </main>
+    </div>
+  </div>
+  

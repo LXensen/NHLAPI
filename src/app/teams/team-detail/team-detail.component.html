@@ -1,0 +1,43 @@
+<br /><br />
+<div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <br />
+        <app-teams-list></app-teams-list>
+      </nav>
+  
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav nav-pills nav-fill shadow-sm">
+                    <li [ngbNavItem]="1" class="nav-item">
+                      <a ngbNavLink class="nav-link">Roster</a>
+                      <ng-template ngbNavContent>
+                        <app-team-roster></app-team-roster>
+                      </ng-template>
+                    </li>
+                    <li [ngbNavItem]="2" class="nav-item">
+                      <a ngbNavLink>Schedule</a>
+                      <ng-template ngbNavContent>
+                        <app-team-schedule></app-team-schedule>
+                      </ng-template>
+                    </li>
+                    <li [ngbNavItem]="3" class="nav-item">
+                      <a ngbNavLink>Stats</a>
+                      <ng-template ngbNavContent>
+                        <app-team-stats></app-team-stats>
+                      </ng-template>
+                    </li>
+                  </ul>
+                  
+                  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+                      
+                </div>
+            </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  

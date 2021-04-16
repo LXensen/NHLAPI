@@ -1,0 +1,16 @@
+table td, th {
+    text-align: center;;
+}
+
+td.total {
+    background-color: #ccc;
+}
+
+div.tableButton {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    padding: 5px;
+    border: 1px solid black;
+}
