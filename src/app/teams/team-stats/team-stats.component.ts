@@ -4,7 +4,12 @@ import { Observable } from 'rxjs';
 import { Component, Directive, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-export type SortColumn = keyof Stats | '';
+interface SortBy {
+  value: number;
+  rank: string;
+}
+
+export type SortColumn = keyof SortBy | '';
 export type SortDirection = 'asc' | 'desc' | '';
 const rotate: {[key: string]: SortDirection} = { 'asc': 'desc', 'desc': '', '': 'asc' };
 export interface SortEvent {
@@ -42,7 +47,7 @@ export class TeamStatsComponent implements OnInit {
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader> | undefined;
   
   onSort({column, direction}: SortEvent){
-
+debugger;
   }
 
   constructor(private teamSVC: TeamsService,

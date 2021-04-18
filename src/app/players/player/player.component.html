@@ -90,7 +90,9 @@
                 <tbody>
                   <tr *ngFor="let stat of StatsCareer.stats[0].splits.slice().reverse()">
                     <th scope="row" *ngIf="stat.league.id === 133">{{stat.season | shortSeason}}</th>
-                    <td *ngIf="stat.league.id === 133">{{teamAbbr(stat.team.id || 0)}}</td>
+                    <td *ngIf="stat.league.id === 133">
+                        <a class="NoUnderlineLink" [routerLink]="['/teams', stat.team.id]">{{teamAbbr(stat.team.id || 0)}}</a>
+                    </td>
                     <td *ngIf="stat.league.id === 133">{{stat.stat.games}}</td>
                     <td *ngIf="stat.league.id === 133">{{stat.stat.goals}}</td>
                     <td *ngIf="stat.league.id === 133">{{stat.stat.assists}}</td>
