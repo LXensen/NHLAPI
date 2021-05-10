@@ -104,8 +104,8 @@ this.linescore$ = timer(0, 10000)
     .pipe(
     concatMap(_ => this.scheduleService.getLineScore(id)),
     map((response: LineScore) => {
-      this.displayGoals();
       this.displayShots();
+      this.displayGoals();
 
       return response;
     }));

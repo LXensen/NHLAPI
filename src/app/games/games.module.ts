@@ -10,6 +10,7 @@ import { TeamsGameStatComponent } from './teams-game-stat/teams-game-stat.compon
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BoxscoreComponent } from './boxscore/boxscore.component';
 import { SummaryComponent } from './summary/summary.component';
+import { BoxscoredetailComponent } from './boxscoredetail/boxscoredetail.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SummaryComponent } from './summary/summary.component';
                  GamedetailComponent,
                  TeamsGameStatComponent,
                  BoxscoreComponent,
-                 SummaryComponent],
+                 SummaryComponent,
+                 BoxscoredetailComponent],
   imports: [
     CommonModule,
     GamesRoutingModule,

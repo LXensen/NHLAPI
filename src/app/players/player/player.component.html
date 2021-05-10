@@ -66,47 +66,122 @@
             </div>
         </div>
     </div> -->
-    <div class="row">
+    <div class="row" *ngIf="player$ | async as player2">
         <div class="col-12">
             <table class="table caption-top table-hover" *ngIf="careerStats$ | async as StatsCareer">
-                <caption>NHL Stats</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Season</th>
-                    <th scope="col">Team</th>
-                    <th scope="col">GP</th>
-                    <th scope="col">G</th>
-                    <th scope="col">A</th>
-                    <th scope="col">Pts</th>
-                    <th scope="col">+/-</th>
-                    <th scope="col">PIM</th>
-                    <th scope="col">SOG</th>
-                    <th scope="col">S%</th>
-                    <th scope="col">GWG</th>
-                    <th scope="col">PPG</th>
-                    <th scope="col">PPP</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let stat of StatsCareer.stats[0].splits.slice().reverse()">
-                    <th scope="row" *ngIf="stat.league.id === 133">{{stat.season | shortSeason}}</th>
-                    <td *ngIf="stat.league.id === 133">
-                        <a class="NoUnderlineLink" [routerLink]="['/teams', stat.team.id]">{{teamAbbr(stat.team.id || 0)}}</a>
-                    </td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.games}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.goals}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.assists}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.points}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.plusMinus}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.pim}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.shots}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.shotPct}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.gameWinningGoals}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.powerPlayGoals}}</td>
-                    <td *ngIf="stat.league.id === 133">{{stat.stat.powerPlayPoints}}</td>
-                  </tr>
-                </tbody>
+                <caption>Player Stats</caption>
+                <ng-template [ngIf]="player2.people[0].primaryPosition.code!=='G'">
+                    <thead>
+                        <tr>
+                            <th scope="col">Season</th>
+                            <th scope="col">Team</th>
+                            <th scope="col">GP</th>
+                            <th scope="col">G</th>
+                            <th scope="col">A</th>
+                            <th scope="col">Pts</th>
+                            <th scope="col">+/-</th>
+                            <th scope="col">PIM</th>
+                            <th scope="col">SOG</th>
+                            <th scope="col">S%</th>
+                            <th scope="col">GWG</th>
+                            <th scope="col">PPG</th>
+                            <th scope="col">PPP</th>
+                        </tr>
+                    </thead>
+                </ng-template>
+                <ng-template [ngIf]="player2.people[0].primaryPosition.code=='G'">
+                    <thead>
+                        <tr>
+                            <th scope="col">Season</th>
+                            <th scope="col">Team</th>
+                            <th scope="col">GP</th>
+                            <th scope="col">GAA</th>
+                            <th scope="col">SV %</th>
+                            <th scope="col">TOI</th>
+                        </tr>
+                    </thead>
+                </ng-template> 
+                <ng-template [ngIf]="player2.people[0].primaryPosition.code!=='G'">
+                    <tbody>
+                    <tr *ngFor="let stat of StatsCareer.stats[0].splits.slice().reverse()">
+                        <th scope="row">{{stat.season | shortSeason}}</th>
+                        <td *ngIf="stat.league.id === 133">
+                            <a class="NoUnderlineLink" [routerLink]="['/teams', stat.team.id]">{{teamAbbr(stat.team.id || 0)}}</a>
+                        </td>
+                        <td *ngIf="stat.league.id !== 133">{{stat.team.name}}</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('games')">{{stat.stat.games}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('games')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('goals')">{{stat.stat.goals}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('goals')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('assists')">{{stat.stat.assists}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('assists')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('points')">{{stat.stat.points}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('points')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('plusMinus')">{{stat.stat.plusMinus}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('plusMinus')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('pim')">{{stat.stat.pim}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('pim')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('shots')">{{stat.stat.shots}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('shots')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('shotPct')">{{stat.stat.shotPct}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('shotPct')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('gameWinningGoals')">{{stat.stat.gameWinningGoals}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('gameWinningGoals')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('powerPlayGoals')">{{stat.stat.powerPlayGoals}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('powerPlayGoals')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('powerPlayPoints')">{{stat.stat.powerPlayPoints}}</td> 
+                        <td *ngIf="!stat.stat.hasOwnProperty('powerPlayPoints')">&nbsp;</td>                    
+                    </tr>
+                    </tbody>
+                </ng-template>  
+                <ng-template [ngIf]="player2.people[0].primaryPosition.code==='G'">
+                    <tbody>
+                    <tr *ngFor="let stat of StatsCareer.stats[0].splits.slice().reverse()">
+                        <th scope="row">{{stat.season | shortSeason}}</th>
+                        <td *ngIf="stat.league.id === 133">
+                            <a class="NoUnderlineLink" [routerLink]="['/teams', stat.team.id]">{{teamAbbr(stat.team.id || 0)}}</a>
+                        </td>
+                        <td *ngIf="stat.league.id !== 133">{{stat.team.name}}</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('games')">{{stat.stat.games}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('games')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('goalAgainstAverage')">{{stat.stat.goalAgainstAverage}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('goalAgainstAverage')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('savePercentage')">{{stat.stat.savePercentage}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('savePercentage')">&nbsp;</td>
+                        <td *ngIf="stat.stat.hasOwnProperty('timeOnIce')">{{stat.stat.timeOnIce}}</td>
+                        <td *ngIf="!stat.stat.hasOwnProperty('timeOnIce')">&nbsp;</td>                  
+                    </tr>
+                    </tbody>
+                </ng-template>                              
               </table>
         </div>
     </div>
   </div>
+  <ng-template #goalieTR>
+    <tr>
+        <th scope="col">Season</th>
+        <th scope="col">Team</th>
+        <th scope="col">GP</th>
+        <th scope="col">GAA</th>
+        <th scope="col">SO</th>
+        <th scope="col">TOI</th>
+    </tr>
+  </ng-template>
+
+  <ng-template #playerTR>
+    <tr>
+        <th scope="col">Season</th>
+        <th scope="col">Team</th>
+        <th scope="col">GP</th>
+        <th scope="col">G</th>
+        <th scope="col">A</th>
+        <th scope="col">Pts</th>
+        <th scope="col">+/-</th>
+        <th scope="col">PIM</th>
+        <th scope="col">SOG</th>
+        <th scope="col">S%</th>
+        <th scope="col">GWG</th>
+        <th scope="col">PPG</th>
+        <th scope="col">PPP</th>
+    </tr>
+  </ng-template>

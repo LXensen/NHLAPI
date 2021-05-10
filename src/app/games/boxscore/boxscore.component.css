@@ -1,1 +1,4 @@
 td, th { text-align: center;}
+
+tr.darkrow { background-color:#ccc;}
+tr.smallFont { font-size: small;}

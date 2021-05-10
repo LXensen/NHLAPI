@@ -32,9 +32,9 @@
                 </tr>
                 <tr class="collapse"  *ngIf="item.position.name !== 'Goalie'" id="A{{item.person.id}}">
                   <td colspan="7">
-                    <table class="table">
+                    <table class="table table-dark table-sm">
                       <thead>
-                        <tr>
+                        <tr class="smallFont">
                           <th scope="col">Hits</th>
                           <th scope="col">Block</th>
                           <th scope="col">PP G</th>
@@ -47,7 +47,7 @@
                           <th scope="col">SH ToI</th>
                         </tr>
                       </thead>
-                      <tr>
+                      <tr class="darkrow">
                         <td>{{item.stats.skaterStats.hits}}</td>
                         <td>{{item.stats.skaterStats.blocked}}</td>
                         <td>{{item.stats.skaterStats.powerPlayGoals}}</td>                        
@@ -98,9 +98,9 @@
         </tr>
         <tr class="collapse"  *ngIf="item.position.name !== 'Goalie'" id="A{{item.person.id}}">
           <td colspan="7">
-            <table class="table">
+            <table class="table table-dark table-sm">
               <thead>
-                <tr>
+                <tr class="smallFont">
                   <th scope="col">Hits</th>
                   <th scope="col">Block</th>
                   <th scope="col">PP G</th>
@@ -113,7 +113,7 @@
                   <th scope="col">SH ToI</th>
                 </tr>
               </thead>
-              <tr>
+              <tr class="darkrow">
                 <td>{{item.stats.skaterStats.hits}}</td>
                 <td>{{item.stats.skaterStats.blocked}}</td>
                 <td>{{item.stats.skaterStats.powerPlayGoals}}</td>                        

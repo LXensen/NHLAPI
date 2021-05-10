@@ -31,6 +31,8 @@ export interface StatsCareer {
           overTimeGoals?: number;
           shortHandedPoints?: number;
           blocked?: number;
+          goalAgainstAverage?: number;
+          savePercentage?: number;
       }
       team: {
           name: string;

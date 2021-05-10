@@ -71,7 +71,7 @@ export class TeamsHelper {
           franchiseId: 23,
           active: true,
           primaryColor: '#E51A37',
-          secondaryColor: '#',
+          secondaryColor: '#000',
           logo: ''
         },
         {
@@ -106,8 +106,8 @@ export class TeamsHelper {
           officialSiteUrl: 'http://www.newyorkislanders.com/',
           franchiseId: 22,
           active: true,
-          primaryColor: '#E51A37',
-          secondaryColor: '#',
+          primaryColor: '#F57C31',
+          secondaryColor: '#05539B',
           logo: ''
         },
         {
@@ -144,7 +144,7 @@ export class TeamsHelper {
           franchiseId: 10,
           active: true,
           primaryColor: '#065EAB',
-          secondaryColor: '#',
+          secondaryColor: '#FFF',
           logo: ''
         },
         {
@@ -181,7 +181,7 @@ export class TeamsHelper {
           franchiseId: 16,
           active: true,
           primaryColor: '#F37737',
-          secondaryColor: '#',
+          secondaryColor: '#000',
           logo: ''
         },
         {
@@ -218,7 +218,7 @@ export class TeamsHelper {
           franchiseId: 17,
           active: true,
           primaryColor: '#FEB81D',
-          secondaryColor: '#',
+          secondaryColor: '#000',
           logo: ''
         },
         {
@@ -255,7 +255,7 @@ export class TeamsHelper {
           franchiseId: 6,
           active: true,
           primaryColor: '#231F21',
-          secondaryColor: '#',
+          secondaryColor: '#FCCB34',
           logo: ''
         },
         {
@@ -292,7 +292,7 @@ export class TeamsHelper {
           franchiseId: 19,
           active: true,
           primaryColor: '#022D62',
-          secondaryColor: '#',
+          secondaryColor: '#FAC42D',
           logo: ''
         },
         {
@@ -329,7 +329,7 @@ export class TeamsHelper {
           franchiseId: 1,
           active: true,
           primaryColor: '#C51330',
-          secondaryColor: '#',
+          secondaryColor: '#022B76',
           logo: ''
         },
         {
@@ -366,7 +366,7 @@ export class TeamsHelper {
           franchiseId: 30,
           active: true,
           primaryColor: '#DD1B33',
-          secondaryColor: '#',
+          secondaryColor: '#A78652',
           logo: ''
         },
         {
@@ -402,7 +402,7 @@ export class TeamsHelper {
           franchiseId: 5,
           active: true,
           primaryColor: '#061F5C',
-          secondaryColor: '#',
+          secondaryColor: '#FFF',
           logo: ''
         },
         {
@@ -439,7 +439,7 @@ export class TeamsHelper {
           franchiseId: 26,
           active: true,
           primaryColor: '#E51A37',
-          secondaryColor: '#',
+          secondaryColor: '#231F21',
           logo: ''
         },
         {
@@ -476,7 +476,7 @@ export class TeamsHelper {
           franchiseId: 33,
           active: true,
           primaryColor: '#CFAB79',
-          secondaryColor: '#',
+          secondaryColor: '#022C61',
           logo: ''
         },
         {
@@ -512,7 +512,7 @@ export class TeamsHelper {
           franchiseId: 31,
           active: true,
           primaryColor: '#033F7E',
-          secondaryColor: '#',
+          secondaryColor: '#FFF',
           logo: ''
         },
         {
@@ -549,7 +549,7 @@ export class TeamsHelper {
           franchiseId: 24,
           active: true,
           primaryColor: '#022D62',
-          secondaryColor: '#',
+          secondaryColor: '#E41B37',
           logo: ''
         },
         {
@@ -586,7 +586,7 @@ export class TeamsHelper {
           franchiseId: 11,
           active: true,
           primaryColor: '#E8A814',
-          secondaryColor: '#',
+          secondaryColor: '#E8A814',
           logo: ''
         },
         {
@@ -623,7 +623,7 @@ export class TeamsHelper {
           franchiseId: 12,
           active: true,
           primaryColor: '#E51A37',
-          secondaryColor: '#',
+          secondaryColor: '#FFF',
           logo: ''
         },
         {
@@ -660,7 +660,7 @@ export class TeamsHelper {
           franchiseId: 34,
           active: true,
           primaryColor: '#FDBB31',
-          secondaryColor: '#',
+          secondaryColor: '#FFF',
           logo: ''
         },
         {
@@ -697,7 +697,7 @@ export class TeamsHelper {
           franchiseId: 18,
           active: true,
           primaryColor: '#05539B',
-          secondaryColor: '#',
+          secondaryColor: '#F0BE58',
           logo: ''
         },
         {
@@ -734,7 +734,7 @@ export class TeamsHelper {
           franchiseId: 21,
           active: true,
           primaryColor: '#DD1B33',
-          secondaryColor: '#',
+          secondaryColor: '#FCBF57',
           logo: ''
         },
         {
@@ -771,7 +771,7 @@ export class TeamsHelper {
           franchiseId: 27,
           active: true,
           primaryColor: '#860038',
-          secondaryColor: '#',
+          secondaryColor: '#860038',
           logo: ''
         },
         {
@@ -808,7 +808,7 @@ export class TeamsHelper {
           franchiseId: 25,
           active: true,
           primaryColor: '#FE4D00',
-          secondaryColor: '#',
+          secondaryColor: '#FE4D00',
           logo: ''
         },
         {
@@ -845,7 +845,7 @@ export class TeamsHelper {
           franchiseId: 20,
           active: true,
           primaryColor: '#022D56',
-          secondaryColor: '#',
+          secondaryColor: '#B2B2B3',
           logo: ''
         },
         {
@@ -882,7 +882,7 @@ export class TeamsHelper {
           franchiseId: 32,
           active: true,
           primaryColor: '#B49859',
-          secondaryColor: '#',
+          secondaryColor: '#B49859',
           logo: ''
         },
         {
@@ -919,7 +919,7 @@ export class TeamsHelper {
           franchiseId: 15,
           active: true,
           primaryColor: '#216C4D',
-          secondaryColor: '#',
+          secondaryColor: '#216C4D',
           logo: ''
         },
         {
@@ -956,7 +956,7 @@ export class TeamsHelper {
           franchiseId: 14,
           active: true,
           primaryColor: '#231F21',
-          secondaryColor: '#',
+          secondaryColor: '#B2B7BC',
           logo: ''
         },
         {
@@ -992,7 +992,7 @@ export class TeamsHelper {
           franchiseId: 29,
           active: true,
           primaryColor: '#08788B',
-          secondaryColor: '#',
+          secondaryColor: '#08788B',
           logo: ''
         },
         {
@@ -1029,7 +1029,7 @@ export class TeamsHelper {
           franchiseId: 36,
           active: true,
           primaryColor: '#022D62',
-          secondaryColor: '#',
+          secondaryColor: '#FFF',
           logo: ''
         },
         {
@@ -1066,7 +1066,7 @@ export class TeamsHelper {
           franchiseId: 37,
           active: true,
           primaryColor: '#035131',
-          secondaryColor: '#',
+          secondaryColor: '#035131',
           logo: ''
         },
         {
@@ -1103,7 +1103,7 @@ export class TeamsHelper {
           franchiseId: 35,
           active: true,
           primaryColor: '#022D62',
-          secondaryColor: '#',
+          secondaryColor: '#8D8D8E',
           logo: ''
         },
         {
@@ -1140,7 +1140,7 @@ export class TeamsHelper {
           franchiseId: 28,
           active: true,
           primaryColor: '#98022E',
-          secondaryColor: '#',
+          secondaryColor: '#F0E3C6',
           logo: ''
         },
         {
@@ -1177,7 +1177,7 @@ export class TeamsHelper {
           franchiseId: 38,
           active: true,
           primaryColor: '#B4985A',
-          secondaryColor: '#',
+          secondaryColor: '#B4985A',
           logo: ''
         }
     );
@@ -1215,6 +1215,7 @@ export class TeamsHelper {
               retVal = val.secondaryColor;
           }
       });
+
       return retVal;
   }
 }

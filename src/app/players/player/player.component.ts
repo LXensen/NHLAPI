@@ -2,7 +2,7 @@ import { PlayersService } from './../service/players.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Player } from '../model/player';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { StatsSingleSeason } from '../model/stats-single-season';
 import { StatsCareer } from '../model/stats-career';
 import { TeamsHelper } from 'src/app/shared/teams-helper';
@@ -43,7 +43,7 @@ export class PlayerComponent implements OnInit {
     this.player$ = this.playerSvc.getPlayer(id);
 
     // this.playerSvc.getPlayer(id).subscribe(data => {
-    //   debugger;
+    //   console.log(data);
     // });
   }
 
@@ -58,8 +58,8 @@ export class PlayerComponent implements OnInit {
   getPlayerStatsCareer(id: number): void {
     this.careerStats$ = this.playerSvc.getPlayerStatsCareer(id);
 
-    this.playerSvc.getPlayerStatsCareer(id).subscribe(data => {
-      console.log(data);
-    });
+    // this.playerSvc.getPlayerStatsCareer(id).subscribe(data => {
+    //   console.log(data);
+    // });
   }
 }
