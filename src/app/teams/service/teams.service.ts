@@ -6,7 +6,6 @@ import { NHLTeam } from '../model/nhlteam';
 import { NHLTeams } from '../model/nhlteams';
 import { HttpClient } from '@angular/common/http';
 import { RosterList } from '../model/roster';
-
 @Injectable({
   providedIn: 'root'
 })
