@@ -32,7 +32,6 @@ export class TeamsListComponent implements OnInit {
     }
 
     this.teams = this.storage.get<NHLTeams>('teams');
-
     // this.teams$ = this.teamsService.getTeams();
 
     // this.teamsService.getTeams().subscribe(data => {
