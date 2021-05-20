@@ -1,6 +1,6 @@
 import { Stats } from './../model/stats';
 import { TeamMonthlySchedule } from './../model/team-monthly-schedule';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { NHLTeam } from '../model/nhlteam';
 import { NHLTeams } from '../model/nhlteams';
@@ -53,4 +53,15 @@ export class TeamsService {
     return this.http.get(teamURL);
   }
 
+  getTeamNextGame(id: number): Observable<any> {
+    const url = `https://statsapi.web.nhl.com/api/v1/teams/${id}/?expand=team.schedule.next`;
+
+    return this.http.get(url);
+  }
+
+  getTeamPreviousGame(id: number): Observable<any> {
+    const url = `https://statsapi.web.nhl.com/api/v1/teams/${id}/?expand=team.schedule.previous`;
+
+    return this.http.get(url);
+  }
 }

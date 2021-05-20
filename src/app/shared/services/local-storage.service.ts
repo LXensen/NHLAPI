@@ -6,17 +6,15 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService {
   private localStorage: Storage;
 
-  constructor() { 
+  constructor() {
     this.localStorage = window.localStorage;
   }
 
   get<T>(key: string): T | null {
     const data: string | null = localStorage.getItem(key);
-
     if (data !== null) {
-      return JSON.parse(data).value;
+      return JSON.parse(data);
     }
-    debugger;
     return null;
   }
 
@@ -35,7 +33,7 @@ export class LocalStorageService {
     }
     return false;
   }
-  
+
   get isLocalStorageSupported(): boolean {
     return !!this.localStorage;
   }

@@ -45,7 +45,7 @@ export class TeamStatsComponent implements OnInit {
   stat$!: Observable<Stats>;
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader> | undefined;
-  
+
   onSort({column, direction}: SortEvent){
 debugger;
   }

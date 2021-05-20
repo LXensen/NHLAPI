@@ -14,6 +14,15 @@
 
 
   <div *ngIf="teams">
-
+    <div class="position-sticky pt-3" *ngFor="let team of teams.teams">
+      <ul class="nav list-group" style="display: inline-block;" (click)="goToTeam(team.id)">
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="width: 190px; border-bottom: none; padding-bottom: 0px; padding-top: 0px;">
+            {{team.name}}  
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center" style="padding-top: 0px; padding-bottom: 0px;">
+              {{team.abbreviation}}
+          </li>
+      </ul>
+    </div>
     <br />
   </div>

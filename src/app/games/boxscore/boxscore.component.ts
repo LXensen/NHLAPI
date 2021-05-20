@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BoxScore } from '../model/box-score';
 import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-boxscore',
@@ -65,12 +65,12 @@ export class BoxscoreComponent implements OnInit {
     // });
 
     this.boxscore$.subscribe(data => {
-      console.log(data);
-      console.log(this.homePlayers);
+      // console.log(data);
+      // console.log(this.homePlayers);
     });
   }
 
   outputdata(data: any): void {
-    console.log(data);
+    // console.log(data);
   }
 }

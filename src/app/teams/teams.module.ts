@@ -9,6 +9,7 @@ import { TeamRosterComponent } from './team-roster/team-roster.component';
 import { NgbdSortableHeader, TeamStatsComponent } from './team-stats/team-stats.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TeamScheduleComponent } from './team-schedule/team-schedule.component';
+import { TeamDetailCardComponent } from './team-detail-card/team-detail-card.component';
 @NgModule({
   declarations: [TeamsComponent,
                  TeamsListComponent,
@@ -16,7 +17,8 @@ import { TeamScheduleComponent } from './team-schedule/team-schedule.component';
                  TeamRosterComponent,
                  TeamStatsComponent,
                  TeamScheduleComponent,
-                NgbdSortableHeader],
+                NgbdSortableHeader,
+                TeamDetailCardComponent],
   imports: [
     NgbModule,
     CommonModule,

@@ -1,21 +1,20 @@
 <br /><br />
 <div class="container-fluid">
-    <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <!-- <div class="row">
+       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
           <br />
         <app-teams-list></app-teams-list>
-      </nav>
+      </nav> 
   
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <br />
+      <main class="col-md-12 ms-sm-auto col-lg-10 px-md-5"> -->
+        <br /> 
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    Some content here
-                </div>
+            <div class="row row-cols-1 row-cols-md-4 g-4" *ngIf="nhlTeams">
+              <div class="col" *ngFor="let team of nhlTeams.teams">
+                <app-team-detail-card [teamId]="team.id" *ngIf="team.id !== 55"></app-team-detail-card>
+              </div>
             </div>
-
         </div>
-      </main>
-    </div>
+    <!--  </main>
+     </div> -->
   </div>
