@@ -12,7 +12,7 @@ export function appInit(configSvc: AppConfigService) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     HttpClientModule,
