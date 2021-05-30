@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DraftComponent implements OnInit {
   draft$!: Observable<Drafts>;
-  draftYear!: number;
+  draftYear = new Date().getFullYear();
 
   draftYears = new Array(60);
 
@@ -26,14 +26,15 @@ export class DraftComponent implements OnInit {
       if (params.has('year')){
         // tslint:disable-next-line: no-non-null-assertion
         this.draftYear = parseInt(params.get('year')!, 10);
-
-        for (let index = 0; index < 60; index++) {
-          this.draftYears[index] = this.draftYear - index;
-        }
       }
       if ( params.has('round')){
+        debugger;
         // tslint:disable-next-line: no-non-null-assertion
         this.draftRound = parseInt(params.get('round')!, 10);
+      }
+
+      for (let index = 0; index < 60; index++) {
+        this.draftYears[index] = this.draftYear - index;
       }
       this.getYear(this.draftYear.toString());
     });
@@ -50,7 +51,6 @@ export class DraftComponent implements OnInit {
   getYear(year: string): void{
     const val = year === null ? this.draftYear : year;
     // tslint:disable-next-line: no-non-null-assertion
-    debugger;
     this.draftYear = parseInt(year, 10);
     this.getDraftForYear(val.toString());
   }

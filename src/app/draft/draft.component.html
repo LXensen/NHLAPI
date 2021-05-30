@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-2">
             <select class="form-select" aria-label="Year" #sel (change)="getYear(sel.value)">
-                <option *ngFor="let year of draftYears;let i=index" [value]="year" [selected]="draftYear">
+                <option *ngFor="let year of draftYears;let i=index" [value]="year" [selected]="year.selected == true">
                     {{ year}}
                 </option>
             </select>
