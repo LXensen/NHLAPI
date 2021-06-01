@@ -27,8 +27,20 @@
                     </a>
                 </div> -->
             </div>
-            <div class="row">
-                
+            <div class="row" *ngFor="let pick of round.picks as Pick">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="{{teamsHlp.getTeamLogoById(pick.team.id)}}" style="width: 100px; height: 100px;" class="top-nav__club-logo-img" alt="{{pick.team.name}}">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">{{pick.prospect.fullName}} - {{pick.pickOverall}}</h5>
+                          <!-- <p class="card-text">{{pick.team.name}}</p> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>                
             </div>
         </div>
     </div>

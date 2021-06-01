@@ -72,7 +72,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#E51A37',
           secondaryColor: '#000',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/301891622/binary-file/file.svg'
         },
         {
           id: 2,
@@ -108,7 +108,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#F57C31',
           secondaryColor: '#05539B',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/316482732/binary-file/file.svg'
         },
         {
           id: 3,
@@ -145,7 +145,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#065EAB',
           secondaryColor: '#FFF',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/289471614/binary-file/file.svg'
         },
         {
           id: 4,
@@ -182,7 +182,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#F37737',
           secondaryColor: '#000',
-          logo: ''
+          logo: '//www-league.nhlstatic.com/images/logos/teams-current-primary-light/4.svg'
         },
         {
           id: 5,
@@ -219,7 +219,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#FEB81D',
           secondaryColor: '#000',
-          logo: ''
+          logo: '//www-league.nhlstatic.com/images/logos/teams-current-primary-light/5.svg'
         },
         {
           id: 6,
@@ -256,7 +256,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#231F21',
           secondaryColor: '#FCCB34',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/301172494/binary-file/file.svg'
         },
         {
           id: 7,
@@ -293,7 +293,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#022D62',
           secondaryColor: '#FAC42D',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/318303268/binary-file/file.svg'
         },
         {
           id: 8,
@@ -330,7 +330,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#C51330',
           secondaryColor: '#022B76',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/309964716/binary-file/file.svg'
         },
         {
           id: 9,
@@ -367,7 +367,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#DD1B33',
           secondaryColor: '#A78652',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/319086486/binary-file/file.svg'
         },
         {
           id: 10,
@@ -403,7 +403,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#061F5C',
           secondaryColor: '#FFF',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/291573114/binary-file/file.svg'
         },
         {
           id: 12,
@@ -440,7 +440,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#E51A37',
           secondaryColor: '#231F21',
-          logo: ''
+          logo: '//www-league.nhlstatic.com/nhl.com/builds/site-core/80600c08b77b058d3b5615c1aabe57b9d81b2442_1618934609/images/logos/team/current/team-12-light.svg'
         },
         {
           id: 13,
@@ -477,7 +477,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#CFAB79',
           secondaryColor: '#022C61',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/291015530/binary-file/file.svg'
         },
         {
           id: 14,
@@ -513,7 +513,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#033F7E',
           secondaryColor: '#FFF',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/299109716/binary-file/file.svg'
         },
         {
           id: 15,
@@ -550,7 +550,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#022D62',
           secondaryColor: '#E41B37',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/298789884/binary-file/file.svg'
         },
         {
           id: 16,
@@ -587,7 +587,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#E8A814',
           secondaryColor: '#E8A814',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/301971744/binary-file/file.svg'
         },
         {
           id: 17,
@@ -624,7 +624,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#E51A37',
           secondaryColor: '#FFF',
-          logo: ''
+          logo: 'https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/17.svg'
         },
         {
           id: 18,
@@ -661,7 +661,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#FDBB31',
           secondaryColor: '#FFF',
-          logo: ''
+          logo: 'https://www-league.nhlstatic.com/nhl.com/builds/site-core/80600c08b77b058d3b5615c1aabe57b9d81b2442_1618934609/images/logos/team/current/team-18-dark.svg'
         },
         {
           id: 19,
@@ -698,7 +698,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#05539B',
           secondaryColor: '#F0BE58',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/309991890/binary-file/file.svg'
         },
         {
           id: 20,
@@ -735,7 +735,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#DD1B33',
           secondaryColor: '#FCBF57',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/319279446/binary-file/file.svg'
         },
         {
           id: 21,
@@ -772,7 +772,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#860038',
           secondaryColor: '#860038',
-          logo: ''
+          logo: 'https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/21.svg'
         },
         {
           id: 22,
@@ -809,7 +809,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#FE4D00',
           secondaryColor: '#FE4D00',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/290013862/binary-file/file.svg'
         },
         {
           id: 23,
@@ -846,7 +846,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#022D56',
           secondaryColor: '#B2B2B3',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/309954422/binary-file/file.svg'
         },
         {
           id: 24,
@@ -883,7 +883,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#B49859',
           secondaryColor: '#B49859',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/299423002/binary-file/file.svg'
         },
         {
           id: 25,
@@ -920,7 +920,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#216C4D',
           secondaryColor: '#216C4D',
-          logo: ''
+          logo: 'https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/25.svg'
         },
         {
           id: 26,
@@ -957,7 +957,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#231F21',
           secondaryColor: '#B2B7BC',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/308180580/binary-file/file.svg'
         },
         {
           id: 28,
@@ -993,7 +993,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#08788B',
           secondaryColor: '#08788B',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/301041748/binary-file/file.svg'
         },
         {
           id: 29,
@@ -1030,7 +1030,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#022D62',
           secondaryColor: '#FFF',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/301936032/binary-file/file.svg'
         },
         {
           id: 30,
@@ -1067,7 +1067,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#035131',
           secondaryColor: '#035131',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/302317224/binary-file/file.svg'
         },
         {
           id: 52,
@@ -1104,7 +1104,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#022D62',
           secondaryColor: '#8D8D8E',
-          logo: ''
+          logo: 'https://www-league.nhlstatic.com/nhl.com/builds/site-core/80600c08b77b058d3b5615c1aabe57b9d81b2442_1618934609/images/logos/team/current/team-52-dark.svg'
         },
         {
           id: 53,
@@ -1141,7 +1141,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#98022E',
           secondaryColor: '#F0E3C6',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/309994320/binary-file/file.svg'
         },
         {
           id: 54,
@@ -1178,7 +1178,7 @@ export class TeamsHelper {
           active: true,
           primaryColor: '#B4985A',
           secondaryColor: '#B4985A',
-          logo: ''
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/290581542/binary-file/file.svg'
         }
     );
 
@@ -1194,6 +1194,17 @@ export class TeamsHelper {
         return retVal;
     }
 
+    getTeamLogoById(id: number): string {
+      let retVal = '';
+      if (id === 0) { return retVal; }
+
+      TeamsHelper.Teams.forEach(val => {
+          if (val.id === id){
+              retVal = val.logo;
+          }
+      });
+      return retVal;
+  }
     getTeamPrimaryColorById(id: number): string {
         let retVal = '';
         if (id === 0) { return retVal; }
@@ -1215,7 +1226,6 @@ export class TeamsHelper {
               retVal = val.secondaryColor;
           }
       });
-
       return retVal;
   }
 }
