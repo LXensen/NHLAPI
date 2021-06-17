@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TeamsHelper } from 'src/app/shared/teams-helper';
 
 import { PlayerComponent } from './player.component';
 
@@ -8,7 +11,9 @@ describe('PlayerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlayerComponent ]
+      declarations: [ PlayerComponent ],
+      imports: [ RouterTestingModule, HttpClientTestingModule ],
+      providers: [ TeamsHelper ]
     })
     .compileComponents();
   });

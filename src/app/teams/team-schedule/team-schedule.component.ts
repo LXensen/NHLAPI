@@ -18,7 +18,6 @@ export class TeamScheduleComponent implements OnInit {
   schedule$!: Observable<TeamMonthlySchedule>;
 
   constructor(private teamSVC: TeamsService,
-              private configSrv: AppConfigService,
               private route: ActivatedRoute,
               private teamsHlp: TeamsHelper) {
             this.currentMonth = new Date().getMonth();

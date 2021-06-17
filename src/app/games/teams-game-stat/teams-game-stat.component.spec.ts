@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamsGameStatComponent } from './teams-game-stat.component';
+import { TeamsHelper } from 'src/app/shared/teams-helper';
 
 describe('TeamsGameStatComponent', () => {
   let component: TeamsGameStatComponent;
@@ -8,7 +9,8 @@ describe('TeamsGameStatComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamsGameStatComponent ]
+      declarations: [ TeamsGameStatComponent ],
+      providers: [ TeamsHelper]
     })
     .compileComponents();
   });

@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LocalStorageService } from '../shared/services/local-storage.service';
 
 import { TeamsComponent } from './teams.component';
 
@@ -8,7 +10,9 @@ describe('TeamsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamsComponent ]
+      declarations: [ TeamsComponent ],
+      imports:[ HttpClientTestingModule ],
+      providers: [ LocalStorageService]
     })
     .compileComponents();
   });

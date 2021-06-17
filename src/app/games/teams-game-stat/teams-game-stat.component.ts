@@ -1,6 +1,6 @@
 import { TeamsHelper } from 'src/app/shared/teams-helper';
 import { StatDataItem } from './StatDataItem';
-import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-teams-game-stat',
@@ -16,8 +16,7 @@ export class TeamsGameStatComponent implements OnInit {
   awayTeamPrimary = '';
   homeTeamPrimary = '';
 
-  constructor(private helper: TeamsHelper,
-              private cdr: ChangeDetectorRef) { }
+  constructor(private helper: TeamsHelper) { }
 
   ngOnInit(): void {
     this.awayTeamPrimary = this.helper.getTeamSecondaryColorById(this.dataItem.AwayID);
