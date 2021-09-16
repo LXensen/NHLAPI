@@ -24,12 +24,12 @@ export class ScheduleComponent implements OnInit {
     // this.scheduleService.getSchedule().subscribe(data => {
     //   debugger;
     // })
-    // this.schedule$ = this.scheduleService.getSchedule();
 
     this.schedule$ = timer(0, 10000)
     .pipe(
       concatMap(_ => this.scheduleService.getSchedule()),
       map((response: Schedule) => {
+        //console.log(response);
         return response;
       })
     );

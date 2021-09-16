@@ -1,6 +1,7 @@
 <div class="row">
+    <app-season [showMonth]="false" (season)="getRosterforSeason($event)"></app-season>
     <div class="col-6">   
-        <table class="table caption-top" *ngIf="roster$ | async as rosterlist">
+        <table class="table caption-top" *ngIf="roster$ | async as roster">
             <caption>Forward</caption>
             <thead>
                 <tr>
@@ -9,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngFor="let player of rosterlist.roster">
+                <ng-container *ngFor="let player of roster">
                     <tr *ngIf="player.position.type == 'Forward'">
                     <th scope="row"><a class="NoUnderlineLink" [routerLink]="['/players', player.person.id]">{{player.person.fullName}} - #{{player.jerseyNumber}}</a></th>
                     <td>{{player.position.name}}</td>
@@ -19,7 +20,7 @@
         </table>                             
     </div>  
     <div class="col-6">   
-        <table class="table caption-top" *ngIf="roster$ | async as rosterlist">
+        <table class="table caption-top" *ngIf="roster$ | async as roster">
             <caption>Defense</caption>
             <thead>
                 <tr>
@@ -28,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngFor="let player of rosterlist.roster">
+                <ng-container *ngFor="let player of roster">
                     <tr *ngIf="player.position.type == 'Defenseman'">
                     <th scope="row"><a class="NoUnderlineLink" [routerLink]="['/players', player.person.id]">{{player.person.fullName}} - #{{player.jerseyNumber}}</a></th>
                     <td>{{player.position.name}}</td>
@@ -37,7 +38,7 @@
             </tbody>
         </table> 
         
-        <table class="table caption-top" *ngIf="roster$ | async as rosterlist">
+        <table class="table caption-top" *ngIf="roster$ | async as roster">
             <caption>Goalies</caption>
             <thead>
                 <tr>
@@ -46,13 +47,13 @@
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngFor="let player of rosterlist.roster">
+                <ng-container *ngFor="let player of roster">
                     <tr *ngIf="player.position.type == 'Goalie'">
                     <th scope="row"><a class="NoUnderlineLink" [routerLink]="['/players', player.person.id]">{{player.person.fullName}} - #{{player.jerseyNumber}}</a></th>
                     <td>{{player.position.name}}</td>
                     </tr>
                 </ng-container>
             </tbody>
-        </table>         
+        </table>     
     </div>  
 </div>

@@ -17,6 +17,7 @@ export class TeamsComponent implements OnInit {
     if (this.storage.get<NHLTeams>('teams') === null){
       this.teamsService.getTeams().subscribe(teamsData => {
         this.nhlTeams = teamsData;
+
         this.storage.set('teams', teamsData);
       });
     }

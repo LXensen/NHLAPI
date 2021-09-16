@@ -6,6 +6,8 @@ import { Observable, of } from 'rxjs';
 import { StatsSingleSeason } from '../model/stats-single-season';
 import { StatsCareer } from '../model/stats-career';
 import { TeamsHelper } from 'src/app/shared/teams-helper';
+import { AppConfigService } from 'src/app/shared/services/app-config.service';
+import { Seasons } from 'src/app/shared/models/seasons';
 
 @Component({
   selector: 'app-player',
@@ -17,19 +19,23 @@ export class PlayerComponent implements OnInit {
   currentSeasonStat$!: Observable<StatsSingleSeason>;
   careerStats$!: Observable<StatsCareer>;
 
+  seasons: Seasons;
+  currentSeasonId: string;
   player!: Player;
 
   constructor(private playerSvc: PlayersService,
               private route: ActivatedRoute,
-              private teams: TeamsHelper) {
-                this.route.paramMap.subscribe(params => {
-                  // tslint:disable-next-line: no-non-null-assertion
-                  const id = params.get('id')!;
+              private teams: TeamsHelper,
+              private appConfigService: AppConfigService) {
+                this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
+                this.seasons = this.appConfigService.Seasons as any;
 
-                  // tslint:disable-next-line: radix
-                  this.getPlayer(parseInt(id));
-                  this.getPlayerStatsCareer(parseInt(id, 10));
-                  // this.getPlayerStatCurrentSeason(parseInt(id, 10));
+                this.route.paramMap.subscribe(params => {
+                  const id = params.get('id') as any;
+
+                  this.getPlayer(Number(id));
+                  this.getPlayerStatsCareer(Number(id));
+                  //this.getPlayerStatSingleSeason(Number(id), this.currentSeasonId);
                 });
                }
 
@@ -39,6 +45,7 @@ export class PlayerComponent implements OnInit {
   teamAbbr(id: number): string {
     return this.teams.getTeamAbbrById(id);
   }
+  
   getPlayer(id: number): void {
     this.player$ = this.playerSvc.getPlayer(id);
 
@@ -48,7 +55,7 @@ export class PlayerComponent implements OnInit {
   }
 
   getPlayerStatSingleSeason(id: number, season: string): void {
-    this.currentSeasonStat$ = this.playerSvc.getPlayerStatsSingleSeason(id, '20202021');
+    this.currentSeasonStat$ = this.playerSvc.getPlayerStatsSingleSeason(id, season);
 
     // this.playerSvc.getPlayerStatsSingleSeason(id, '').subscribe(data => {
     //   debugger;

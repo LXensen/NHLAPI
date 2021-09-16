@@ -5,62 +5,67 @@ import { Injectable } from '@angular/core';
 import { NHLTeam } from '../model/nhlteam';
 import { NHLTeams } from '../model/nhlteams';
 import { HttpClient } from '@angular/common/http';
-import { RosterList } from '../model/roster';
+import { RosterList } from '../model/roster-list';
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsService {
+  private teamsURL: string = 'https://statsapi.web.nhl.com/api/v1/teams';
+  private scheduleURL: string = 'https://statsapi.web.nhl.com/api/v1/schedule';
 
   constructor(private http: HttpClient) { }
 
   getTeams(): Observable<NHLTeams> {
-    const teamsURL = 'https://statsapi.web.nhl.com/api/v1/teams';
-
-    return this.http.get<NHLTeams>(teamsURL);
+    return this.http.get<NHLTeams>(this.teamsURL);
   }
 
   getTeamById(id: number): Observable<NHLTeam> {
-    const teamURL = `https://statsapi.web.nhl.com/api/v1/teams/${id}`;
+    const url = `${this.teamsURL}/${id}`;
 
-    return this.http.get<NHLTeam>(teamURL);
+    return this.http.get<NHLTeam>(url);
   }
 
   getTeamRoster(id: number): Observable<RosterList> {
-    const teamURL = `https://statsapi.web.nhl.com/api/v1/teams/${id}/roster`;
+    const url = `${this.teamsURL}/${id}/roster`;
 
-    return this.http.get<RosterList>(teamURL);
+    return this.http.get<RosterList>(url);
   }
 
-  getTeamMonthlySchedule(id: number, date: Date): Observable<TeamMonthlySchedule> {
+  getTeamRosterBySeason(id: number, season: string): Observable<NHLTeams> {
+    const url = `${this.teamsURL}/${id}?expand=team.roster&season=${season}`;
+
+    return this.http.get<NHLTeams>(url);
+  }
+  getTeamScheduleByMonth(id: number, date: Date): Observable<TeamMonthlySchedule> {
     const startDate = `${date.getFullYear()}-${date.getMonth() + 1}-01`;
     const tempEndDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     const endDate = `${tempEndDate.getFullYear()}-${tempEndDate.getMonth() + 1}-${tempEndDate.getDate()}`;
 
-    const teamURL = `https://statsapi.web.nhl.com/api/v1/schedule?teamId=${id}&startDate=${startDate}&endDate=${endDate}`;
+    const url = `${this.scheduleURL}?teamId=${id}&startDate=${startDate}&endDate=${endDate}`;
 
-    return this.http.get<TeamMonthlySchedule>(teamURL);
+    return this.http.get<TeamMonthlySchedule>(url);
+  }
+
+  getTeamScheduleBySeason(id: number, season: string): Observable<any> {
+    const url = `${this.scheduleURL}?teamId=${id}&season=${season}`;
+
+    return this.http.get(url);
   }
 
   getTeamStats(id: number): Observable<Stats> {
-    const url = `https://statsapi.web.nhl.com/api/v1/teams/${id}/stats`;
+    const url = `${this.teamsURL}/${id}/stats`;
 
     return this.http.get<Stats>(url);
   }
 
-  getTeamSchedule(id: number): Observable<any> {
-    const teamURL = `https://statsapi.web.nhl.com/api/v1/schedule?teamId=${id}&startDate=2021-03-01&endDate=2021-03-31`;
-
-    return this.http.get(teamURL);
-  }
-
   getTeamNextGame(id: number): Observable<any> {
-    const url = `https://statsapi.web.nhl.com/api/v1/teams/${id}/?expand=team.schedule.next`;
+    const url = `${this.teamsURL}/${id}/?expand=team.schedule.next`;
 
     return this.http.get(url);
   }
 
   getTeamPreviousGame(id: number): Observable<any> {
-    const url = `https://statsapi.web.nhl.com/api/v1/teams/${id}/?expand=team.schedule.previous`;
+    const url = `${this.teamsURL}/${id}/?expand=team.schedule.previous`;
 
     return this.http.get(url);
   }

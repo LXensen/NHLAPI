@@ -9,23 +9,24 @@ import { StatsCareer } from '../model/stats-career';
   providedIn: 'root'
 })
 export class PlayersService {
+  private peopleURL: string = 'https://statsapi.web.nhl.com/api/v1/people';
 
   constructor(private http: HttpClient) { }
 
   getPlayer(id: number): Observable<Player> {
-    const playerURL = `https://statsapi.web.nhl.com/api/v1/people/${id}`;
+    const url = `${this.peopleURL}/${id}`;
 
-    return this.http.get<Player>(playerURL);
+    return this.http.get<Player>(url);
   }
 
   getPlayerStatsSingleSeason(id: number, year: string): Observable<StatsSingleSeason> {
-    const url = `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=statsSingleSeason&season=${year}`;
+    const url = `${this.peopleURL}/${id}/stats?stats=statsSingleSeason&season=${year}`;
 
     return this.http.get<StatsSingleSeason>(url);
   }
 
   getPlayerStatsCareer(id: number): Observable<StatsCareer> {
-    const url = `https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=yearByYear`;
+    const url = `${this.peopleURL}/${id}/stats?stats=yearByYear`;
 
     return this.http.get<StatsCareer>(url);
   }

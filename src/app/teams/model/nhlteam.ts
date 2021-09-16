@@ -1,3 +1,4 @@
+import { Roster } from './roster';
 export interface NHLTeam {
     id: number;
     name: string;
@@ -31,6 +32,9 @@ export interface NHLTeam {
         teamName: string;
         link: string
     };
+    roster: {
+        roster: Array<Roster>
+    }
     shortName: string;
     officialSiteUrl: string;
     franchiseId: number;

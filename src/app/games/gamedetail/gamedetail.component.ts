@@ -4,7 +4,7 @@ import { LineScore } from './../model/line-score';
 import { ScheduleService } from './../service/schedule.service';
 import { Observable, timer } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { concatMap, map } from 'rxjs/operators';
 
 @Component({
@@ -30,6 +30,7 @@ export class GamedetailComponent implements OnInit {
   active = 1;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private scheduleService: ScheduleService) {
                 this.route.paramMap.subscribe(params => {
                   // tslint:disable-next-line: no-non-null-assertion
@@ -110,5 +111,9 @@ export class GamedetailComponent implements OnInit {
       displayGoals(): void {
         this.goalsStyle = 'background-color: #ccc';
         this.shotsStyle = 'background-color: #fff';
+      }
+
+      goToTeam(teamID: number): void{
+        this.router.navigate([`teams/${teamID}`]);
       }
 }

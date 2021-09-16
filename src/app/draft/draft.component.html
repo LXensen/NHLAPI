@@ -35,8 +35,11 @@
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
-                          <h5 class="card-title">{{pick.prospect.fullName}} - {{pick.pickOverall}}</h5>
+                          <h5 class="card-title">{{pick.prospect.fullName}} - {{pick.pickOverall}} - round {{pick.round}}</h5>
                           <!-- <p class="card-text">{{pick.team.name}}</p> -->
+                          <a [routerLink]="['/prospects', pick.prospect.id]">
+                                go to
+                          </a>
                         </div>
                       </div>
                     </div>

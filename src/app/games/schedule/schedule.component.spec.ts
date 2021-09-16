@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ScheduleComponent } from './schedule.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ScheduleComponent', () => {
   let component: ScheduleComponent;
@@ -8,6 +10,7 @@ describe('ScheduleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [ ScheduleComponent ]
     })
     .compileComponents();

@@ -1,7 +1,6 @@
 import { ScheduleService } from './../service/schedule.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BoxScore } from '../model/box-score';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

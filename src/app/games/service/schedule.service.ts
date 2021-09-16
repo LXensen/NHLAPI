@@ -9,26 +9,26 @@ import { Schedule } from '../model/schedule';
   providedIn: 'root'
 })
 export class ScheduleService {
+  private scheduleURL: string = 'https://statsapi.web.nhl.com/api/v1/schedule';
+  private gameURL: string = 'https://statsapi.web.nhl.com/api/v1/game';
 
   constructor(private http: HttpClient) { }
 
   getSchedule(): Observable<Schedule> {
-    const url = 'https://statsapi.web.nhl.com/api/v1/schedule';
-
-    return this.http.get<Schedule>(url);
+    return this.http.get<Schedule>(this.scheduleURL);
   }
 
   // getTeamScheduleByDate(): Observable<any> {
   // }
 
   getBoxScore(id: string): Observable<any> {
-    const url = `https://statsapi.web.nhl.com/api/v1/game/${id}/boxscore`;
+    const url = `${this.gameURL}/${id}/boxscore`;
 
     return this.http.get<any>(url);
   }
 
   getLineScore(id: string): Observable<LineScore> {
-    const url = `https://statsapi.web.nhl.com/api/v1/game/${id}/linescore`;
+    const url = `${this.gameURL}/${id}/linescore`;
 
     return this.http.get<LineScore>(url);
   }
