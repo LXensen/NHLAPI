@@ -31,7 +31,7 @@ export class DraftComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       if (params.has('year')){
-        this.draftYear = Number(params.get('year') as any);
+        this.selectedDraftYear = Number(params.get('year') as any);
       }
       if ( params.has('round')){
         this.draftRound = Number(params.get('round') as any);
