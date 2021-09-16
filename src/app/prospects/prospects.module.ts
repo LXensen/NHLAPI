@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { ProspectsRoutingModule } from './prospects-routing.module';
 import { ProspectsComponent } from './prospects.component';
+import { ProspectComponent } from './prospect/prospect.component';
 
 
 @NgModule({
-  declarations: [ProspectsComponent],
+  declarations: [ProspectsComponent, ProspectComponent],
   imports: [
     CommonModule,
     ProspectsRoutingModule

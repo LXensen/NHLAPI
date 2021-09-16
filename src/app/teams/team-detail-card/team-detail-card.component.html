@@ -1,13 +1,13 @@
-<div class="card"  *ngIf="stat$ | async">
+<div class="card"  *ngIf="stat$ | async" role="button" >
     <div class="card-body">
-      <h5 class="card-title" (click)="goToTeam(teamStat.stats[0].splits[0].team.id)">{{teamStat.stats[0].splits[0].team.name}}</h5>
+      <h5 class="card-title" (click)="goToTeam(teamId)">{{nextGame.teams[0].name}}</h5>
       <p class="card-text">
         <small class="text-muted">
-        {{teamStat.stats[0].splits[0].stat.wins}}
+        {{teamStat.stats[0].splits[0]?.stat?.wins}}
             -
-        {{teamStat.stats[0].splits[0].stat.losses}}
+        {{teamStat.stats[0].splits[0]?.stat?.losses}}
             -
-        {{teamStat.stats[0].splits[0].stat.ot}}
+        {{teamStat.stats[0].splits[0]?.stat?.ot}}
         </small>    
       </p>
       <h6 class="card-title">Last Game</h6>

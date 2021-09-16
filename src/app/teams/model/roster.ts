@@ -1,10 +1,7 @@
-import { Position } from './position';
 import { Person } from './person';
-export interface RosterList {
-    copyright: string;
-    roster: Array<{
+import { Position } from './position';
+export interface Roster {
         person: Person;
         jerseyNumber: number;
         position: Position;
-      }>;
 }

@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-md-4 g-4" *ngIf="nhlTeams">
               <div class="col" *ngFor="let team of nhlTeams.teams">
-                <app-team-detail-card [teamId]="team.id" *ngIf="team.id !== 55"></app-team-detail-card>
+                <app-team-detail-card [teamId]="team.id" *ngIf="team.active"></app-team-detail-card>
               </div>
             </div>
         </div>

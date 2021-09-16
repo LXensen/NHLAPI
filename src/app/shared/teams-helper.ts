@@ -1179,6 +1179,50 @@ export class TeamsHelper {
           primaryColor: '#B4985A',
           secondaryColor: '#B4985A',
           logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/290581542/binary-file/file.svg'
+        },
+        {
+          id : 55,
+          name : 'Seattle Kraken',
+          link : '/api/v1/teams/55',
+          venue : {
+            name : 'Climate Pledge Arena',
+            link : '/api/v1/venues/null',
+            city : 'Seattle',
+            timeZone : {
+              id : 'America/Los_Angeles',
+              offset : -7,
+              tz : 'PDT'
+            }
+          },
+          abbreviation : 'SEA',
+          teamName : 'Kraken',
+          locationName : 'Seattle',
+          firstYearOfPlay : 2021,
+          division : {
+            id : 15,
+            name : 'Pacific',
+            nameShort : 'PAC',
+            link : '/api/v1/divisions/15',
+            abbreviation : 'P'
+          },
+          conference : {
+            id : 5,
+            name : 'Western',
+            link : '/api/v1/conferences/5'
+          },
+          franchise : {
+            franchiseId : 39,
+            teamName : 'Kraken',
+            link : '/api/v1/franchises/39'
+          },
+          shortName : 'Seattle',
+          officialSiteUrl : 'https://www.nhl.com/seattle',
+          franchiseId : 39,
+          active : true,
+          primaryColor: '#98022E',
+          secondaryColor: '#F0E3C6',
+          logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/317578370/binary-file/file.svg'
+
         }
     );
 

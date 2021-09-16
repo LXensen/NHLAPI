@@ -11,14 +11,14 @@
           <div class="container">
             <div class="row" *ngIf="linescore$ | async as LineScore">
               <div class="col-5" style="text-align: right;">
-                <h4>{{LineScore.teams.away.team.name}}</h4>
+                <h4 role="button" (click)="goToTeam(LineScore.teams.away.team.id)">{{LineScore.teams.away.team.name}}</h4>
               </div>
               <div class="col-2" style="text-align: center;">
                 <div>{{LineScore.currentPeriodTimeRemaining}} {{LineScore.currentPeriodOrdinal}}<br /></div>
                 <h4>{{LineScore.teams.away.goals}} - {{LineScore.teams.home.goals}}</h4>
               </div>
               <div class="col-5"  style="text-align: left;">
-                <h4>{{LineScore.teams.home.team.name}}</h4>
+                <h4 role="button" (click)="goToTeam(LineScore.teams.home.team.id)">{{LineScore.teams.home.team.name}}</h4>
               </div>
             </div>
             <div class="row">

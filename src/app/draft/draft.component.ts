@@ -1,5 +1,4 @@
 import { Round } from './models/round';
-import { element } from 'protractor';
 import { Drafts } from './models/drafts';
 import { DraftService } from './service/draft.service';
 import { Component, OnInit } from '@angular/core';
@@ -30,12 +29,10 @@ export class DraftComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       if (params.has('year')){
-        // tslint:disable-next-line: no-non-null-assertion
-        this.draftYear = parseInt(params.get('year')!, 10);
+        this.draftYear = Number(params.get('year') as any);
       }
       if ( params.has('round')){
-        // tslint:disable-next-line: no-non-null-assertion
-        this.draftRound = parseInt(params.get('round')!, 10);
+        this.draftRound = Number(params.get('round') as any);
       }
 
       for (let index = 0; index < 60; index++) {

@@ -1,10 +1,10 @@
-import { AppConfigService } from './../../shared/services/app-config.service';
 import { TeamsHelper } from 'src/app/shared/teams-helper';
 import { TeamMonthlySchedule, Match } from './../model/team-monthly-schedule';
 import { TeamsService } from './../service/teams.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AppConfigService } from '../../shared/services/app-config.service';
 
 @Component({
   selector: 'app-team-schedule',
@@ -12,20 +12,19 @@ import { Observable } from 'rxjs';
   styleUrls: ['./team-schedule.component.css']
 })
 export class TeamScheduleComponent implements OnInit {
-  months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(x => new Date(2000, x, 2));
-  currentMonth = 1;
-  teamID = 0;
+  currentMonth = new Date().getMonth();
+  private teamID = 0;
+  private currentSeasonId: string;
   schedule$!: Observable<TeamMonthlySchedule>;
 
   constructor(private teamSVC: TeamsService,
               private route: ActivatedRoute,
-              private teamsHlp: TeamsHelper) {
-            this.currentMonth = new Date().getMonth();
+              private teamsHlp: TeamsHelper,
+              private appConfigService: AppConfigService) {
 
+              this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
             this.route.paramMap.subscribe(params => {
-              // tslint:disable-next-line: no-non-null-assertion
-              this.teamID = parseInt(params.get('id')!, 10);
-
+              this.teamID = Number(params.get('id') as any);
               this.getTeamScheduleForMonth(this.teamID, this.currentMonth);
             });
   }
@@ -35,7 +34,8 @@ export class TeamScheduleComponent implements OnInit {
 
   getTeamScheduleForMonth(id: number, month: number): void{
     const scheduleDate = new Date(new Date().getFullYear(), month, 1);
-    this.schedule$ = this.teamSVC.getTeamMonthlySchedule(id, scheduleDate);
+
+    this.schedule$ = this.teamSVC.getTeamScheduleByMonth(id, scheduleDate);
     // this.teamSVC.getTeamMonthlySchedule(id, scheduleDate).subscribe(data => {
     //   console.log(data);
     // });
@@ -47,7 +47,22 @@ export class TeamScheduleComponent implements OnInit {
     return awayMatch + ' - ' + homeMatch;
   }
 
-  getDate(month: any): void{
+  getMonth(month: any): void{
+    // if month is greater than december, the year will have to be bumped by one
+    this.currentMonth = month;
     this.getTeamScheduleForMonth(this.teamID, month);
+  }
+
+  getSeason(season: string): void{
+    if(season !== undefined){
+      debugger;
+      if(this.currentSeasonId !== season){
+        debugger;
+        this.schedule$ = this.teamSVC.getTeamScheduleBySeason(this.teamID, season)
+      }
+      // get schedule for season
+    }
+    //this.currentYear = year;
+    //this.getTeamSchedule(this.teamID, this.currentMonth, year);
   }
 }

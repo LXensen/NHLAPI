@@ -5,8 +5,7 @@ export interface Prospect {
     firstName: string;
     lastName: string;
     birthDate: string;
-    birthCountry: string;
-    birthCity: string;
+    birthCounty: string;
     height: string;
     weight: number;
     shootsCatches: string;

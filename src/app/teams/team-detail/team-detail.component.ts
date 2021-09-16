@@ -14,23 +14,33 @@ export class TeamDetailComponent implements OnInit {
   team$!: Observable<NHLTeam>;
   team!: NHLTeam;
 
-  active = 1;
+  season: string = '';
+  active:number = 1;
   constructor(private teamsService: TeamsService,
               private route: ActivatedRoute) {
-                this.route.paramMap.subscribe(params => {
-                  // tslint:disable-next-line: no-non-null-assertion
-                  const id = params.get('id')!;
-                  // tslint:disable-next-line: radix
-                  this.getTeam(parseInt(id));
-                });
+
               }
 
   ngOnInit(): void {
+    this.route.url.subscribe(data => {
+      // we'll always have the first element, which is the team ID
+      // 0 - Team ID
+      // 1 - roster or schedule
+      // 2 - season 0 20202021 format
+      this.getTeam(Number(data[0].path));
+      data.forEach(segment => {
+        if(segment.path === 'roster'){
+          this.active = 1;
+        }
+        if(segment.path === 'schedule'){
+          this.active = 2;
+        }
+      })
+    })
   }
 
   getTeam(id: number): void {
       this.team$ = this.teamsService.getTeamById(id);
-
       // this.teamsService.getTeamById(id).subscribe(data => {
       //   debugger;
       // });

@@ -1,14 +1,6 @@
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-2">
-            <select class="form-select" aria-label="Month" #sel (change)="getDate(sel.value)">
-                <option *ngFor="let month of months;let i=index" [value]="i" [selected]="currentMonth === i">
-                    {{month | date: 'MMMM'}}
-                </option>
-              </select>
-        </div>
-    </div>
+    <app-season (month)="getMonth($event)" (season)="getSeason($event)"></app-season>
     <div class="row" *ngIf="schedule$ | async as TeamMonthlySchedule">
         <div class="col-12">
             <table class="table caption-top table-hover">
