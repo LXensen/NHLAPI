@@ -14,7 +14,7 @@
                 Rounds 
                 <ul class="list-group list-group-horizontal">
                     <li  style="border-style: none;" class="list-group-item" *ngFor="let round of drafts.drafts[0].rounds; let i=index">
-                        <a [routerLink]="['/draft/', draftYear, round.round]">
+                        <a [routerLink]="['/draft/', selectedDraftYear, round.round]">
                         {{round.round}}
                         </a>
                     </li>

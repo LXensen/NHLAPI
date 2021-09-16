@@ -3,7 +3,7 @@ import { Drafts } from './models/drafts';
 import { DraftService } from './service/draft.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TeamsHelper } from '../shared/teams-helper';
 
 @Component({
@@ -15,7 +15,8 @@ export class DraftComponent implements OnInit {
   draft$!: Observable<Drafts>;
   round: Partial<Round> = {};
 
-  draftYear = new Date().getFullYear();
+  baseDraftYear = new Date().getFullYear();
+  selectedDraftYear = this.baseDraftYear;
 
   draftYears = new Array(60);
 
@@ -23,6 +24,7 @@ export class DraftComponent implements OnInit {
 
   constructor(private svcDraft: DraftService,
               private route: ActivatedRoute,
+              private router: Router,
               public teamsHlp: TeamsHelper) {
               }
 
@@ -36,9 +38,9 @@ export class DraftComponent implements OnInit {
       }
 
       for (let index = 0; index < 60; index++) {
-        this.draftYears[index] = this.draftYear - index;
+        this.draftYears[index] = this.baseDraftYear - index;
       }
-      this.getYear(this.draftYear.toString());
+      this.getDraftForYear(this.selectedDraftYear.toString());
     });
   }
 
@@ -55,9 +57,10 @@ export class DraftComponent implements OnInit {
   }
 
   getYear(year: string): void{
-    const val = year === null ? this.draftYear : year;
+    const val = year === null ? this.selectedDraftYear : year;
     // tslint:disable-next-line: no-non-null-assertion
-    this.draftYear = parseInt(year, 10);
+    this.selectedDraftYear = parseInt(year, 10);
+    this.router.navigate(['/draft', year, 1]);
     this.getDraftForYear(val.toString());
   }
 
