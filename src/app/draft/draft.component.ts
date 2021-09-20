@@ -46,7 +46,7 @@ export class DraftComponent implements OnInit {
 
   getDraftForYear(year: string): void{
       this.svcDraft.getDraftForYear(year).subscribe(data => {
-      console.log(data);
+
       if (data.drafts[0].rounds)
       { 
         this.round = data.drafts[0].rounds[this.draftRound - 1];

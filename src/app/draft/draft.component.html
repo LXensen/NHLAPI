@@ -19,13 +19,6 @@
                         </a>
                     </li>
                 </ul>
-                <!-- <div class="list-group list-group-horizontal">
-                    <a class="list-group-item list-group-item-action" 
-                    *ngFor="let round of drafts.drafts[0].rounds" 
-                    [routerLink]="['/draft', draftYear, round.round]">
-                    {{round.round}}
-                    </a>
-                </div> -->
             </div>
             <div class="row" *ngFor="let pick of round.picks as Pick">
                 <div class="card mb-3" style="max-width: 540px;">
@@ -38,7 +31,7 @@
                           <h5 class="card-title">{{pick.prospect.fullName}} - {{pick.pickOverall}} - round {{pick.round}}</h5>
                           <!-- <p class="card-text">{{pick.team.name}}</p> -->
                           <a [routerLink]="['/prospects', pick.prospect.id]">
-                                go to
+                                player details
                           </a>
                         </div>
                       </div>

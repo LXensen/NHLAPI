@@ -23,7 +23,7 @@ export class TeamScheduleComponent implements OnInit {
               private appConfigService: AppConfigService) {
 
               this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
-            this.route.paramMap.subscribe(params => {
+              this.route.paramMap.subscribe(params => {
               this.teamID = Number(params.get('id') as any);
               this.getTeamScheduleForMonth(this.teamID, this.currentMonth);
             });
@@ -33,8 +33,14 @@ export class TeamScheduleComponent implements OnInit {
   }
 
   getTeamScheduleForMonth(id: number, month: number): void{
-    const scheduleDate = new Date(new Date().getFullYear(), month, 1);
+    let firstYear = Number(this.currentSeasonId.slice(0, 4));
+    let secondYear = Number(this.currentSeasonId.slice(4, 8));
 
+    // month < 8 = Jan, Feb, Mar, Apr
+    // season = 2021-2022
+    const scheduleDate = new Date(month < 8 ? secondYear : firstYear, month, 1);
+
+    debugger;
     this.schedule$ = this.teamSVC.getTeamScheduleByMonth(id, scheduleDate);
     // this.teamSVC.getTeamMonthlySchedule(id, scheduleDate).subscribe(data => {
     //   console.log(data);
@@ -55,9 +61,8 @@ export class TeamScheduleComponent implements OnInit {
 
   getSeason(season: string): void{
     if(season !== undefined){
-      debugger;
       if(this.currentSeasonId !== season){
-        debugger;
+        this.currentSeasonId = season;
         this.schedule$ = this.teamSVC.getTeamScheduleBySeason(this.teamID, season)
       }
       // get schedule for season
