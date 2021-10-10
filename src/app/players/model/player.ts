@@ -1,3 +1,5 @@
+import { PlayerPrimaryPosition } from "src/app/shared/models/player-primary-position";
+
 export interface Player {
     copyright: string;
     people: Array<{
@@ -26,11 +28,6 @@ export interface Player {
             name: string;
             link: string;
         };
-        primaryPosition: {
-            code: string;
-            name: string;
-            type: string;
-            abbreviation: string;
-        };
+        primaryPosition: PlayerPrimaryPosition;
     }>;
 }

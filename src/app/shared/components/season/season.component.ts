@@ -11,7 +11,9 @@ export class SeasonComponent implements OnInit {
   months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(x => new Date(2000, x, 2));
   seasons: Seasons;
   currentMonth = 1;
-  currentSeasonId: string;
+  // currentSeasonId: string;
+
+  selectedSeason: string = '';
 
   @Output() season = new EventEmitter<string>();
   @Output() month = new EventEmitter<number>();
@@ -19,13 +21,15 @@ export class SeasonComponent implements OnInit {
 
   constructor(private appConfigService: AppConfigService) { 
     this.currentMonth = new Date().getMonth();
-    this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
+    // this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
     this.seasons = this.appConfigService.Seasons as any;
   }
 
   ngOnInit(): void {
+    this.selectedSeason = this.seasons.seasons[this.seasons.seasons.length -1].seasonId;
+
     this.month.emit(this.currentMonth);
-    this.season.emit(this.currentSeasonId);
+    this.season.emit(this.selectedSeason);
   }
 
   getMonth(month: any): void{
@@ -35,6 +39,6 @@ export class SeasonComponent implements OnInit {
 
   getSeason(season: any): void{
     this.season.emit(season);
-    this.currentSeasonId = season;
+    this.selectedSeason = season;
   }
 }

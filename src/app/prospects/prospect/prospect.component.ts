@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Prospects } from 'src/app/prospects/models/prospects';
@@ -11,26 +11,23 @@ import { ProspectService } from '../service/prospect.service';
 })
 export class ProspectComponent implements OnInit {
   prospect$!: Observable<Prospects>;
-
+  @Input() set prospectId(value: number){
+    this.getPlayer(value);
+  }
+  
   constructor(private prospectSvc: ProspectService,
               private route: ActivatedRoute,) { 
                 this.route.paramMap.subscribe(params => {
                   const id = params.get('id') as any;
-
                   this.getPlayer(Number(id));
                 });
               }
 
   ngOnInit(): void {
-    
   }
 
   getPlayer(id: number): void {
     this.prospect$ = this.prospectSvc.getDraftProspect(id);
-
-    // this.prospectSvc.getDraftProspect(id).subscribe(data => {
-    //   console.log(data);
-    // });
   }
 
   prospectAge(date: string): string{

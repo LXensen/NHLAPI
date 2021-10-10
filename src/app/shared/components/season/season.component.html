@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-2">
         <select class="form-select" aria-label="Year" #selYear (change)="getSeason(selYear.value)">
-            <option *ngFor="let season of seasons.seasons" [value]="season.seasonId" [selected]="season.seasonId">
+            <option *ngFor="let season of seasons.seasons" [value]="season.seasonId" [selected]="selectedSeason">
                 {{season.regularSeasonStartDate.slice(0, 4)}}-{{season.regularSeasonEndDate.slice(0, 4)}}
             </option>
         </select>

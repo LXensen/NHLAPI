@@ -42,7 +42,7 @@ export class TeamsService {
     const endDate = `${tempEndDate.getFullYear()}-${tempEndDate.getMonth() + 1}-${tempEndDate.getDate()}`;
 
     const url = `${this.scheduleURL}?teamId=${id}&startDate=${startDate}&endDate=${endDate}`;
-
+console.log(url);
     return this.http.get<TeamMonthlySchedule>(url);
   }
 

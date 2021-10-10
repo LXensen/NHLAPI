@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeamsHelper } from './shared/teams-helper';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 export function appInit(configSvc: AppConfigService) {
   return () => configSvc.Init();
@@ -15,6 +17,8 @@ export function appInit(configSvc: AppConfigService) {
     AppComponent,
   ],
   imports: [
+    NgbModalModule,
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

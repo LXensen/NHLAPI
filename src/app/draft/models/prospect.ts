@@ -1,3 +1,5 @@
+import { PlayerPrimaryPosition } from "src/app/shared/models/player-primary-position";
+
 export interface Prospect {
     id?: number;
     fullName: string;
@@ -10,12 +12,7 @@ export interface Prospect {
     height: string;
     weight: number;
     shootsCatches: string;
-    primaryPosition: {
-        code: string;
-        name: string;
-        type: string;
-        abbreviation: string;
-    };
+    primaryPosition: PlayerPrimaryPosition;
     draftStatus: string;
     prospectCategory: {
         id: number;

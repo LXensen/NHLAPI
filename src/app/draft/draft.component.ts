@@ -26,6 +26,9 @@ export class DraftComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               public teamsHlp: TeamsHelper) {
+                for (let index = 0; index < 60; index++) {
+                  this.draftYears[index] = this.baseDraftYear - index;
+                }
               }
 
   ngOnInit(): void {
@@ -37,14 +40,11 @@ export class DraftComponent implements OnInit {
         this.draftRound = Number(params.get('round') as any);
       }
 
-      for (let index = 0; index < 60; index++) {
-        this.draftYears[index] = this.baseDraftYear - index;
-      }
       this.getDraftForYear(this.selectedDraftYear.toString());
     });
   }
 
-  getDraftForYear(year: string): void{
+  getDraftForYear(year: string): void{     
       this.svcDraft.getDraftForYear(year).subscribe(data => {
 
       if (data.drafts[0].rounds)
@@ -57,11 +57,9 @@ export class DraftComponent implements OnInit {
   }
 
   getYear(year: string): void{
-    const val = year === null ? this.selectedDraftYear : year;
-    // tslint:disable-next-line: no-non-null-assertion
-    this.selectedDraftYear = parseInt(year, 10);
+    //const val = year === null ? this.selectedDraftYear : year;
     this.router.navigate(['/draft', year, 1]);
-    this.getDraftForYear(val.toString());
+    //this.getDraftForYear(val.toString());
   }
 
 }
