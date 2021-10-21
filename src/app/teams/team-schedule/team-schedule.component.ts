@@ -64,7 +64,6 @@ export class TeamScheduleComponent implements OnInit {
         this.selectedSeasonId = season;
         this.schedule$ = this.teamSVC.getTeamScheduleBySeason(this.teamID, season)
       }
-      // get schedule for season
     }
   }
 }

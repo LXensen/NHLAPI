@@ -39,8 +39,6 @@ export class ProspectComponent implements OnInit {
       yearDiff--;
       monthDiff += 12;
     }
-    // return `${yearDiff}y${monthDiff}m`
     return `${yearDiff}`
-    // console.log(yearDiff + ' ' + monthDiff);
   }
 }

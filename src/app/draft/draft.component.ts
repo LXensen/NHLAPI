@@ -56,9 +56,7 @@ export class DraftComponent implements OnInit {
   }
 
   getYear(year: string): void{
-    //const val = year === null ? this.selectedDraftYear : year;
     this.router.navigate(['/draft', year, 1]);
-    //this.getDraftForYear(val.toString());
   }
 
 }
