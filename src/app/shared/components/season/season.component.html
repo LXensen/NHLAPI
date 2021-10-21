@@ -1,13 +1,14 @@
 <div class="row">
     <div class="col-2">
         <select class="form-select" aria-label="Year" #selYear (change)="getSeason(selYear.value)">
-            <option *ngFor="let season of seasons.seasons" [value]="season.seasonId" [selected]="selectedSeason">
+            <option *ngFor="let season of seasons.seasons" [value]="season.seasonId" [selected]="selectedSeason === season.seasonId">
                 {{season.regularSeasonStartDate.slice(0, 4)}}-{{season.regularSeasonEndDate.slice(0, 4)}}
             </option>
         </select>
     </div>
     <div class="col-2">
         <select *ngIf="showMonth" class="form-select" aria-label="Month" #selMonth (change)="getMonth(selMonth.value)">
+            <option value="20" [selected]="currentMonth === 20">--select--</option>
             <option *ngFor="let month of months;let i=index" [value]="i" [selected]="currentMonth === i">
                 {{month | date: 'MMMM'}}
             </option>

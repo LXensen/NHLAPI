@@ -12,8 +12,8 @@ import { Observable } from 'rxjs';
 })
 export class TeamScheduleComponent implements OnInit {
   currentMonth = new Date().getMonth();
+
   private teamID = 0;
-  // private currentSeasonId: string;
   private selectedSeasonId: string;
 
   schedule$!: Observable<TeamMonthlySchedule>;
@@ -23,10 +23,9 @@ export class TeamScheduleComponent implements OnInit {
               private teamsHlp: TeamsHelper) {
 
               this.selectedSeasonId = '';
-              // this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
+
               this.route.paramMap.subscribe(params => {
               this.teamID = Number(params.get('id') as any);
-              // this.getTeamScheduleForMonth(this.teamID, this.currentMonth);
             });
   }
 
@@ -34,7 +33,6 @@ export class TeamScheduleComponent implements OnInit {
   }
 
   getTeamScheduleForMonth(id: number, month: number): void{
-    debugger;
     let firstYear = Number(this.selectedSeasonId.slice(0, 4));
     let secondYear = Number(this.selectedSeasonId.slice(4, 8));
 
@@ -44,14 +42,14 @@ export class TeamScheduleComponent implements OnInit {
 
     this.schedule$ = this.teamSVC.getTeamScheduleByMonth(id, scheduleDate);
     this.teamSVC.getTeamScheduleByMonth(id, scheduleDate).subscribe(data => {
-      console.log(`Team id=${id} - month=${month} - year 1=${firstYear} - year 2=${secondYear}`);
     });
   }
 
   getMatchDetails(match: Match): string {
     const awayMatch = `${this.teamsHlp.getTeamAbbrById(match.games[0].teams.away.team.id)}&nbsp;&nbsp;&nbsp; ${match.games[0].teams.away.score}`;
     const homeMatch = `${match.games[0].teams.home.score}&nbsp;&nbsp;&nbsp; ${this.teamsHlp.getTeamAbbrById(match.games[0].teams.home.team.id)}`;
-    return awayMatch + ' - ' + homeMatch;
+    const gameType = match.games[0].gameType === "PR" ? "<small>(pre)</small>" : "";
+    return awayMatch + ' - ' + homeMatch + ' ' + gameType;
   }
 
   getMonth(month: any): void{
@@ -61,7 +59,6 @@ export class TeamScheduleComponent implements OnInit {
   }
 
   getSeason(season: string): void{
-    debugger;
     if(season !== undefined){
       if(this.selectedSeasonId !== season){
         this.selectedSeasonId = season;
@@ -69,7 +66,5 @@ export class TeamScheduleComponent implements OnInit {
       }
       // get schedule for season
     }
-    //this.currentYear = year;
-    //this.getTeamSchedule(this.teamID, this.currentMonth, year);
   }
 }

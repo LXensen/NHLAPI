@@ -1219,8 +1219,8 @@ export class TeamsHelper {
           officialSiteUrl : 'https://www.nhl.com/seattle',
           franchiseId : 39,
           active : true,
-          primaryColor: '#98022E',
-          secondaryColor: '#F0E3C6',
+          primaryColor: '#91d1d1',
+          secondaryColor: '#609ab0',
           logo: 'https://cms.nhl.bamgrid.com/images/assets/binary/317578370/binary-file/file.svg'
 
         }
@@ -1240,6 +1240,7 @@ export class TeamsHelper {
 
     getTeamLogoById(id: number): string {
       let retVal = '';
+
       if (id === 0) { return retVal; }
 
       TeamsHelper.Teams.forEach(val => {

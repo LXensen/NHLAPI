@@ -10,8 +10,7 @@ import { Seasons } from '../../models/seasons';
 export class SeasonComponent implements OnInit {
   months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(x => new Date(2000, x, 2));
   seasons: Seasons;
-  currentMonth = 1;
-  // currentSeasonId: string;
+  currentMonth = 20;
 
   selectedSeason: string = '';
 
@@ -20,7 +19,7 @@ export class SeasonComponent implements OnInit {
   @Input() showMonth = true;
 
   constructor(private appConfigService: AppConfigService) { 
-    this.currentMonth = new Date().getMonth();
+    // this.currentMonth = new Date().getMonth();
     // this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
     this.seasons = this.appConfigService.Seasons as any;
   }
@@ -38,7 +37,8 @@ export class SeasonComponent implements OnInit {
   }
 
   getSeason(season: any): void{
-    this.season.emit(season);
     this.selectedSeason = season;
+    this.currentMonth = 20;
+    this.season.emit(season);    
   }
 }

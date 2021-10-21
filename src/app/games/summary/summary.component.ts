@@ -35,6 +35,7 @@ export class SummaryComponent implements OnInit {
   thirdPerAway = '-';
   totalHome = '-';
   totalAway = '-';
+  displaying = 'goals';
 
   constructor(private route: ActivatedRoute,
               private scheduleService: ScheduleService) {
@@ -47,9 +48,6 @@ export class SummaryComponent implements OnInit {
     }
 
 ngOnInit(): void {
-// const id = this.route.snapshot.paramMap.get('id');
-// // tslint:disable-next-line: no-non-null-assertion
-// this.getLineScore(id!);
 }
 
 getBoxscore(id: string): void {
@@ -94,58 +92,57 @@ this.scheduleService.getBoxScore(id).subscribe(data => {
 }
 
 getLineScore(id: string): void {
-// this.linescore$ = this.scheduleService.getLineScore(id);
-
-this.scheduleService.getLineScore(id).subscribe(data => {
-  this.linescore = data;
-});
+// this.scheduleService.getLineScore(id).subscribe(data => {
+//   this.linescore = data;
+// });
 
 this.linescore$ = timer(0, 10000)
     .pipe(
-    concatMap(_ => this.scheduleService.getLineScore(id)),
+    concatMap(linescore => this.scheduleService.getLineScore(id)),
     map((response: LineScore) => {
-      this.displayShots();
-      this.displayGoals();
+      this.linescore = response;
+
+      this.displayData(this.displaying);
 
       return response;
     }));
 }
 
-displayShots(): void {
-  this.goalsStyle = 'background-color: #fff';
-  this.shotsStyle = 'background-color: #ccc';
+displayData(type: string): void {
+  if(type === 'shots'){
+    this.displaying = type;
+    this.goalsStyle = 'background-color: #fff';
+    this.shotsStyle = 'background-color: #ccc';
 
-  // this.linescore$.pipe(
-  //   map((response: LineScore) => {
-  //     console.log(response);
-  //   }));
-  this.firstPerAway = this.linescore.periods[0]?.away.shotsOnGoal.toString();
-  this.firstPerHome = this.linescore.periods[0]?.home.shotsOnGoal.toString();
+    this.firstPerAway = this.linescore.periods[0]?.away.shotsOnGoal.toString();
+    this.firstPerHome = this.linescore.periods[0]?.home.shotsOnGoal.toString();
 
-  this.secondPerAway = this.linescore.periods[1]?.away.shotsOnGoal.toString();
-  this.secondPerHome = this.linescore.periods[1]?.home.shotsOnGoal.toString();
+    this.secondPerAway = this.linescore.periods[1]?.away.shotsOnGoal.toString();
+    this.secondPerHome = this.linescore.periods[1]?.home.shotsOnGoal.toString();
 
-  this.thirdPerAway = this.linescore.periods[2]?.away.shotsOnGoal.toString();
-  this.thirdPerHome = this.linescore.periods[2]?.home.shotsOnGoal.toString();
+    this.thirdPerAway = this.linescore.periods[2]?.away.shotsOnGoal.toString();
+    this.thirdPerHome = this.linescore.periods[2]?.home.shotsOnGoal.toString();
 
-  this.totalAway = this.linescore.teams.away.shotsOnGoal.toString();
-  this.totalHome = this.linescore.teams.home.shotsOnGoal.toString();
-}
+    this.totalAway = this.linescore.teams.away.shotsOnGoal.toString();
+    this.totalHome = this.linescore.teams.home.shotsOnGoal.toString();
+  }
 
-displayGoals(): void {
-  this.goalsStyle = 'background-color: #ccc';
-  this.shotsStyle = 'background-color: #fff';
+  if(type === 'goals'){
+    this.displaying = type;
+    this.goalsStyle = 'background-color: #ccc';
+    this.shotsStyle = 'background-color: #fff';
 
-  this.firstPerAway = this.linescore.periods[0]?.away.goals.toString();
-  this.firstPerHome = this.linescore.periods[0]?.home.goals.toString();
+    this.firstPerAway = this.linescore.periods[0]?.away.goals.toString();
+    this.firstPerHome = this.linescore.periods[0]?.home.goals.toString();
 
-  this.secondPerAway = this.linescore.periods[1]?.away.goals.toString();
-  this.secondPerHome = this.linescore.periods[1]?.home.goals.toString();
+    this.secondPerAway = this.linescore.periods[1]?.away.goals.toString();
+    this.secondPerHome = this.linescore.periods[1]?.home.goals.toString();
 
-  this.thirdPerAway = this.linescore.periods[2]?.away.goals.toString();
-  this.thirdPerHome = this.linescore.periods[2]?.home.goals.toString();
+    this.thirdPerAway = this.linescore.periods[2]?.away.goals.toString();
+    this.thirdPerHome = this.linescore.periods[2]?.home.goals.toString();
 
-  this.totalAway = this.linescore.teams.away.goals.toString();
-  this.totalHome = this.linescore.teams.home.goals.toString();
+    this.totalAway = this.linescore.teams.away.goals.toString();
+    this.totalHome = this.linescore.teams.home.goals.toString();
+  }
 }
 }
