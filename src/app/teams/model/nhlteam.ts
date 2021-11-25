@@ -4,13 +4,14 @@ export interface NHLTeam {
     name: string;
     link: string;
     venue: {
+        id: number;
         name: string;
         link: string;
         city: string;
         timeZone: {
-        id: string;
-        offset: number;
-        tz: string;
+            id: string;
+            offset: number;
+            tz: string;
         }
     };
     abbreviation: string;
@@ -20,7 +21,9 @@ export interface NHLTeam {
     division: {
         id: number;
         name: string;
-        link: string
+        link: string;
+        nameShort: string;
+        abbreviation: string;
     };
     conference: {
         id: number;
@@ -32,7 +35,7 @@ export interface NHLTeam {
         teamName: string;
         link: string
     };
-    roster: {
+    roster?: {
         roster: Array<Roster>
     }
     shortName: string;

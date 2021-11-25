@@ -1,8 +1,7 @@
 import { Stats } from './../model/stats';
 import { TeamMonthlySchedule } from './../model/team-monthly-schedule';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { NHLTeam } from '../model/nhlteam';
 import { NHLTeams } from '../model/nhlteams';
 import { HttpClient } from '@angular/common/http';
 import { RosterList } from '../model/roster-list';
@@ -10,8 +9,8 @@ import { RosterList } from '../model/roster-list';
   providedIn: 'root'
 })
 export class TeamsService {
-  private teamsURL: string = 'https://statsapi.web.nhl.com/api/v1/teams';
-  private scheduleURL: string = 'https://statsapi.web.nhl.com/api/v1/schedule';
+  private teamsURL = 'https://statsapi.web.nhl.com/api/v1/teams';
+  private scheduleURL = 'https://statsapi.web.nhl.com/api/v1/schedule';
 
   constructor(private http: HttpClient) { }
 
@@ -19,10 +18,10 @@ export class TeamsService {
     return this.http.get<NHLTeams>(this.teamsURL);
   }
 
-  getTeamById(id: number): Observable<NHLTeam> {
+  getTeamById(id: number): Observable<NHLTeams> {
     const url = `${this.teamsURL}/${id}`;
 
-    return this.http.get<NHLTeam>(url);
+    return this.http.get<NHLTeams>(url);
   }
 
   getTeamRoster(id: number): Observable<RosterList> {

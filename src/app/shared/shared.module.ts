@@ -6,9 +6,11 @@ import { LocalStorageService } from './services/local-storage.service';
 import { SeasonComponent } from './components/season/season.component';
 
 @NgModule({
-  declarations: [TeamAbbr, ShortSeasonPipe, LocalStorageService, SeasonComponent],
+  declarations: [TeamAbbr, ShortSeasonPipe, SeasonComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  providers: [ LocalStorageService ],
+  exports: [TeamAbbr, ShortSeasonPipe, SeasonComponent, CommonModule]
 })
 export class SharedModule { }

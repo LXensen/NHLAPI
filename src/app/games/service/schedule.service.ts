@@ -9,8 +9,8 @@ import { Schedule } from '../model/schedule';
   providedIn: 'root'
 })
 export class ScheduleService {
-  private scheduleURL: string = 'https://statsapi.web.nhl.com/api/v1/schedule';
-  private gameURL: string = 'https://statsapi.web.nhl.com/api/v1/game';
+  private scheduleURL = 'https://statsapi.web.nhl.com/api/v1/schedule';
+  private gameURL = 'https://statsapi.web.nhl.com/api/v1/game';
 
   constructor(private http: HttpClient) { }
 

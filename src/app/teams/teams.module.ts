@@ -10,7 +10,7 @@ import { TeamRosterComponent } from './team-roster/team-roster.component';
 import { NgbdSortableHeader, TeamStatsComponent } from './team-stats/team-stats.component';
 import { TeamScheduleComponent } from './team-schedule/team-schedule.component';
 import { TeamDetailCardComponent } from './team-detail-card/team-detail-card.component';
-import { SeasonComponent } from '../shared/components/season/season.component';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [TeamsComponent,
                  TeamsListComponent,
@@ -19,12 +19,12 @@ import { SeasonComponent } from '../shared/components/season/season.component';
                  TeamStatsComponent,
                  TeamScheduleComponent,
                  NgbdSortableHeader,
-                 SeasonComponent,
                  TeamDetailCardComponent],
   imports: [
     NgbModule,
     CommonModule,
-    TeamsRoutingModule
+    TeamsRoutingModule,
+    SharedModule
   ]
 })
 export class TeamsModule { }

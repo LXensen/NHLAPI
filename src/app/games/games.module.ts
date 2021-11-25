@@ -1,7 +1,7 @@
-import { TeamAbbr } from './../shared/pipes/team-abbr.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from '../shared/shared.module';
 import { GamesRoutingModule } from './games-routing.module';
 import { GamesComponent } from './games.component';
 import { ScheduleComponent } from './schedule/schedule.component';
@@ -16,7 +16,6 @@ import { BoxscoredetailComponent } from './boxscoredetail/boxscoredetail.compone
 @NgModule({
   declarations: [GamesComponent,
                  ScheduleComponent,
-                 TeamAbbr,
                  GamedetailComponent,
                  TeamsGameStatComponent,
                  BoxscoreComponent,
@@ -25,7 +24,8 @@ import { BoxscoredetailComponent } from './boxscoredetail/boxscoredetail.compone
   imports: [
     CommonModule,
     GamesRoutingModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ]
 })
 export class GamesModule { }

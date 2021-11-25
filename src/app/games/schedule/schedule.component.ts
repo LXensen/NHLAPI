@@ -29,7 +29,7 @@ export class ScheduleComponent implements OnInit {
     .pipe(
       concatMap(_ => this.scheduleService.getSchedule()),
       map((response: Schedule) => {
-        //console.log(response);
+        console.log(response);
         return response;
       })
     );

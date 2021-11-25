@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
+Web interface to the un-published NHL api ( https://gitlab.com/dword4/nhlapi/blob/master/stats-api.md )
+
+Accessible here http://api-nhl.s3-website-us-east-1.amazonaws.com/
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

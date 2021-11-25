@@ -12,20 +12,20 @@ export class SeasonComponent implements OnInit {
   seasons: Seasons;
   currentMonth = 20;
 
-  selectedSeason: string = '';
+  selectedSeason = '';
 
   @Output() season = new EventEmitter<string>();
   @Output() month = new EventEmitter<number>();
   @Input() showMonth = true;
 
-  constructor(private appConfigService: AppConfigService) { 
+  constructor(private appConfigService: AppConfigService) {
     // this.currentMonth = new Date().getMonth();
     // this.currentSeasonId = this.appConfigService.currentSeason?.seasonId as any;
     this.seasons = this.appConfigService.Seasons as any;
   }
 
   ngOnInit(): void {
-    this.selectedSeason = this.seasons.seasons[this.seasons.seasons.length -1].seasonId;
+    this.selectedSeason = this.seasons.seasons[this.seasons.seasons.length - 1].seasonId;
 
     this.month.emit(this.currentMonth);
     this.season.emit(this.selectedSeason);
@@ -39,6 +39,6 @@ export class SeasonComponent implements OnInit {
   getSeason(season: any): void{
     this.selectedSeason = season;
     this.currentMonth = 20;
-    this.season.emit(season);    
+    this.season.emit(season);
   }
 }

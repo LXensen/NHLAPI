@@ -11,7 +11,7 @@ import { TeamsService } from './service/teams.service';
 export class TeamsComponent implements OnInit {
   nhlTeams!: NHLTeams | null;
   constructor(private storage: LocalStorageService,
-    private teamsService: TeamsService) { }
+              private teamsService: TeamsService) { }
 
   ngOnInit(): void {
     if (this.storage.get<NHLTeams>('teams') === null){

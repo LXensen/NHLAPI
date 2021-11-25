@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class TeamRosterComponent implements OnInit {
   roster$!: Observable<any>;
 
-  private teamId: number = 0;
+  private teamId = 0;
 
   constructor(private teamsService: TeamsService,
               private route: ActivatedRoute) {
@@ -30,9 +30,9 @@ export class TeamRosterComponent implements OnInit {
   }
 
   getRosterforSeason(season: string): void{
-    if(season !== undefined){
+    if (season !== undefined){
       this.roster$ = this.teamsService.getTeamRosterBySeason(this.teamId, season).pipe(map(data => {
-        return data.teams[0].roster.roster;
+        return data.teams[0].roster?.roster;
       }));
     }
   }
