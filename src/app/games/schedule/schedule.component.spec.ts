@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ScheduleComponent } from './schedule.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ScheduleService } from '../service/schedule.service';
 
 describe('ScheduleComponent', () => {
   let component: ScheduleComponent;
