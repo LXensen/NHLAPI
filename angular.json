@@ -84,7 +84,6 @@
           },
           "configurations": {
             "development": {
-              "sourceMap": true,
               "browserTarget": "NHL-API:build:development"
             }
           },
@@ -111,19 +110,6 @@
               "src/styles.css"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {
